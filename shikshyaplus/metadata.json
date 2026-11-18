@@ -1,0 +1,6 @@
+{
+  "name": "ShikshyaPlus",
+  "description": "Multi-tenant School Management ERP, Global Education Social Network & AI Homework Ecosystem.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

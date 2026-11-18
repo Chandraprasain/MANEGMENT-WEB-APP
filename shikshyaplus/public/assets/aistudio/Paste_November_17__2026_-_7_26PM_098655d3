@@ -1,0 +1,3010 @@
+# MASTER DEVELOPMENT PROMPT V2.0
+# COMPLETE GLOBAL SCHOOL MANAGEMENT, SOCIAL NETWORK & AI EDUCATION ECOSYSTEM
+
+**Project Type:** Full-Stack Multi-Tenant Education SaaS + Global Social Network  
+**Product Stage:** Complete Production-Ready Implementation  
+**Target Market:** Nepal first, expandable worldwide  
+**Platforms:** Responsive Web Application + Progressive Web App (PWA)  
+**Architecture:** Multi-Tenant, Modular, Scalable, Secure  
+**Primary Language:** English, with Nepali localization  
+**Product Design:** Premium Modern SaaS + Facebook-inspired Social Experience
+
+---
+
+# PART 1 — MASTER EXECUTION INSTRUCTIONS
+
+You are acting as a complete senior software engineering team consisting of:
+
+- Principal Software Architect.
+- Senior Frontend Engineer.
+- Senior Backend Engineer.
+- Database Architect.
+- UI/UX Designer.
+- Security Engineer.
+- AI Integration Engineer.
+- DevOps Engineer.
+- QA Automation Engineer.
+
+Your responsibility is to BUILD the complete application described in this specification.
+
+This is an implementation assignment, not a request to write another PRD.
+
+## 1.1 Mandatory Development Rules
+
+1. Inspect the existing project and its file structure before changing anything.
+2. Preserve existing working features.
+3. Do not unnecessarily recreate or delete existing code.
+4. Build a complete working application.
+5. Implement real authentication.
+6. Implement real database persistence.
+7. Implement real API endpoints.
+8. Implement real account permissions.
+9. Implement real file uploads.
+10. Implement real-time communication.
+11. Implement actual CRUD operations.
+12. Implement complete form validation.
+13. Implement server-side authorization.
+14. Implement proper database relationships.
+15. Implement responsive dashboards.
+16. Implement the complete Global Feed.
+17. Implement My School.
+18. Implement school-specific database isolation.
+19. Implement all specified account types.
+20. Implement automatic student account creation.
+21. Implement AI provider integrations.
+22. Implement moderation and account enforcement.
+23. Implement error handling.
+24. Implement loading and empty states.
+25. Implement automated tests.
+
+**Never create a fake implementation merely to make a dashboard look complete.**
+
+Examples of prohibited shortcuts:
+
+- Fake login without authentication.
+- Static dashboard statistics presented as real data.
+- Buttons that do nothing.
+- Fake AI responses.
+- Messages that are not stored.
+- Student accounts that do not exist in the database.
+- Fake school registration.
+- Fake payment success.
+- Dummy attendance.
+- Hardcoded school information.
+- Frontend-only role protection.
+- Fake verification badges.
+- Simulated file upload presented as a completed upload.
+- Dummy call buttons.
+- Empty pages presented as finished modules.
+
+Every feature must either work end to end or clearly display that its required external integration is not configured.
+
+Do not claim production readiness until the implementation and acceptance tests actually pass.
+
+## 1.2 Development Execution Strategy
+
+Work in this order:
+
+1. Inspect repository.
+2. Identify framework and existing backend.
+3. Review database and existing authentication.
+4. Prepare architecture.
+5. Implement database schema and migrations.
+6. Implement authentication and authorization.
+7. Implement tenant isolation.
+8. Implement role-specific dashboards.
+9. Implement account and student management.
+10. Implement academic modules.
+11. Implement social networking.
+12. Implement real-time messaging and notifications.
+13. Implement AI integration.
+14. Implement moderation.
+15. Implement remaining management modules.
+16. Implement automated testing.
+17. Fix all compilation errors.
+18. Run database migrations.
+19. Run end-to-end tests.
+20. Prepare production deployment documentation.
+
+Do not stop after creating the homepage or dashboard designs.
+
+Continue until all specified modules have working implementation, migrations, APIs, UI and tests.
+
+---
+
+# PART 2 — PRODUCT OVERVIEW
+
+Build a unified digital ecosystem combining three major products.
+
+## SYSTEM A: COMPLETE SCHOOL MANAGEMENT ERP
+
+Each school independently manages:
+
+- Students.
+- Parents.
+- Teachers.
+- Staff.
+- Principal.
+- Classes.
+- Sections.
+- Subjects.
+- Homework.
+- Assignments.
+- Attendance.
+- Examinations.
+- Results.
+- Daily diary.
+- Timetable.
+- Notices.
+- School events.
+- Fees.
+- Library.
+- Transport.
+- Admission.
+- Reports.
+- Documents.
+
+## SYSTEM B: GLOBAL EDUCATION SOCIAL NETWORK
+
+A worldwide social community where approved users and schools can:
+
+- Create profiles.
+- Publish posts.
+- Upload photos and videos.
+- Like posts.
+- Comment.
+- Share.
+- Save posts.
+- Follow schools.
+- Send eligible connection requests.
+- Join educational communities.
+- Discover other schools.
+- Discover educational projects.
+- Organize events.
+- Collaborate with other schools.
+
+## SYSTEM C: MY SCHOOL COMMUNITY
+
+Every user gets access to their authorized school community.
+
+It contains:
+
+- Official school posts.
+- Principal announcements.
+- Teacher posts.
+- School notices.
+- Class activities.
+- School events.
+- Approved student activities.
+- Approved parent interactions.
+- School photos.
+- School videos.
+- School information.
+
+All three systems must be integrated into one application without compromising school privacy.
+
+---
+
+# PART 3 — COMPLETE USER AND ACCOUNT ARCHITECTURE
+
+Implement these account types.
+
+1. Platform Super Admin.
+2. Platform Support Administrator.
+3. School Organization.
+4. School Principal.
+5. Vice Principal.
+6. Teacher.
+7. Class Teacher.
+8. Examination Officer.
+9. School Staff.
+10. Technical Department.
+11. Technical Data Operator.
+12. Student.
+13. Parent.
+14. Legal Guardian.
+15. Librarian.
+16. Accountant.
+17. Receptionist.
+18. Transport Staff.
+19. Other authorized departmental staff.
+
+## 3.1 One Global Identity System
+
+A person should not need to create a completely new identity every time they join another authorized school.
+
+Separate:
+
+- Global User Identity.
+- School Membership.
+- Account Role.
+- School-Specific Profile.
+- Social Profile.
+- Academic Student Record.
+- Guardian Relationship.
+
+Example:
+
+One user may be:
+
+- A parent at Sunrise English School.
+- A parent at Everest Secondary School.
+- A teacher at another authorized school, if separately verified.
+
+Each membership has independent school permissions.
+
+Use a secure account switcher.
+
+Never combine permissions simply because a person has multiple roles.
+
+## 3.2 School ID Login System
+
+Every school receives a unique School ID.
+
+Example:
+
+`SUNRISE-2026`
+
+Each school member receives an individual User ID.
+
+Examples:
+
+- Principal: PRI-001.
+- Teacher: TCH-001.
+- Staff: STF-001.
+- Student: STU-001.
+- Technical Operator: TEC-001.
+
+Login screen:
+
+- School ID.
+- User ID.
+- Password.
+- Login button.
+- Forgot Password.
+- Account Help.
+
+After authentication, automatically identify the account role and redirect to the correct dashboard.
+
+Platform Super Admin uses a separate secure administration login.
+
+A parent who has children at multiple schools can use their global identity and select the relevant verified school membership.
+
+Never allow the user to change School ID in the browser to gain access to another tenant.
+
+## 3.3 Account Status
+
+Implement:
+
+- Pending Verification.
+- Invitation Sent.
+- Verification Required.
+- Active.
+- Temporarily Restricted.
+- Suspended.
+- Banned.
+- Archived.
+- Deactivated.
+
+Every status must affect backend access, not only frontend visibility.
+
+---
+
+# PART 4 — SCHOOL REGISTRATION AND VERIFICATION
+
+Build complete school registration.
+
+## School Registration Form
+
+- School name.
+- School logo.
+- School cover image.
+- School type.
+- School category.
+- Country.
+- Province.
+- District.
+- Municipality.
+- Ward.
+- Address.
+- Telephone.
+- Official email.
+- Website.
+- Established year.
+- Registration number.
+- Education board.
+- Principal name.
+- Principal phone.
+- Principal email.
+- School registration documents.
+
+## Verification Workflow
+
+Application Submitted → Document Verification → Approval → School ID Generated → School Workspace Activated.
+
+Rejected applications must receive a reason and correction workflow.
+
+Suspended schools must lose normal publishing and membership-management privileges according to suspension policy.
+
+## School Profile
+
+Each approved school gets:
+
+- Official public profile.
+- School logo.
+- Cover image.
+- About.
+- Address.
+- Contact information.
+- Public photos.
+- Public videos.
+- Events.
+- Activities.
+- Achievements.
+- Admission information.
+- Posts.
+- Followers.
+- School verification badge.
+
+A public school page must never expose private student records.
+
+---
+
+# PART 5 — MULTI-TENANT DATABASE ISOLATION
+
+THIS IS A CRITICAL NON-NEGOTIABLE REQUIREMENT.
+
+Every school must have completely isolated private data.
+
+Example:
+
+School A:
+- Students A.
+- Parents A.
+- Teachers A.
+- Results A.
+- Attendance A.
+- Homework A.
+- Messages A.
+
+School B:
+- Students B.
+- Parents B.
+- Teachers B.
+- Results B.
+- Attendance B.
+- Homework B.
+- Messages B.
+
+School A must never access School B's private records.
+
+School B must never access School A's private records.
+
+## Recommended Architecture
+
+- PostgreSQL.
+- Tenant-aware relational schema.
+- PostgreSQL Row-Level Security where appropriate.
+- Server-side tenant resolver.
+- Tenant-aware repositories.
+- Database transactions.
+- Tenant-aware background jobs.
+- Tenant-aware search.
+- Private object storage.
+- Audit logging.
+
+A central global identity database may be shared. School-specific academic data must remain tenant-scoped.
+
+Do not assume that putting `school_id` in a frontend form provides isolation.
+
+Every protected database operation must independently validate the user's active school membership.
+
+## Mandatory Database Security
+
+- Composite constraints.
+- Foreign keys.
+- Tenant-scoped indexes.
+- Row-level policies.
+- Server-side resource ownership validation.
+- Cross-tenant authorization tests.
+- Tenant-safe background jobs.
+- Tenant-safe exports.
+- Tenant-safe file access.
+- School-specific search permissions.
+
+Never expose another school's records through a search query, PDF, API, CSV export or media URL.
+
+---
+
+# PART 6 — UNIVERSAL DASHBOARD SYSTEM
+
+EVERY ACCOUNT MUST HAVE ITS OWN DASHBOARD.
+
+Every dashboard includes an appropriately permission-controlled `+ ADD` button.
+
+All account types must have a personalized interface.
+
+## 6.1 Universal Navigation
+
+- Dashboard.
+- Global Feed.
+- My School.
+- My Profile.
+- Posts.
+- Messages.
+- Notifications.
+- Search.
+- Saved.
+- Activities.
+- Connections.
+- Account Center.
+- Help and Support.
+
+Additional navigation is determined by role permissions.
+
+## 6.2 Universal Add System
+
+Every dashboard must display a visible Add action.
+
+Examples:
+
+Principal:
+- Add Teacher.
+- Add Staff.
+- Add Student.
+- Add Class.
+- Add Notice.
+- Add Event.
+
+Teacher:
+- Add Student to Assigned Class.
+- Add Homework.
+- Add Assignment.
+- Add Attendance.
+- Add Diary Entry.
+- Add Learning Material.
+- Add Class Post.
+
+Staff:
+- Add Department Records.
+- Add Requests.
+- Add Documents.
+- Add Operational Data.
+
+Technical Department:
+- Add Student Record.
+- Import Students.
+- Add Documents.
+- Generate Invitations.
+- Process Corrections.
+
+Student:
+- Create Post.
+- Upload Project.
+- Submit Homework.
+- Upload Photo.
+- Share Achievement.
+- Ask AI.
+- Ask Question.
+
+Parent:
+- Create Post.
+- Upload Photo.
+- Request Meeting.
+- Apply Leave.
+- Send Feedback.
+- Submit Correction Request.
+- Link Another Child.
+
+School:
+- Add Post.
+- Add Notice.
+- Add Event.
+- Add Photos.
+- Add Videos.
+- Add Activities.
+
+Super Admin:
+- Add School.
+- Add Platform Administrator.
+- Add Subscription Plan.
+- Add Platform Announcement.
+
+No user should see actions they cannot use.
+
+## 6.3 Permission-Based Add
+
+Build a dynamic action registry.
+
+Each Add action must include:
+
+- Action name.
+- Permission.
+- User role.
+- School scope.
+- Validation schema.
+- Form component.
+- Backend endpoint.
+- Success feedback.
+- Audit event.
+
+Never implement authorization only through conditional rendering.
+
+---
+
+# PART 7 — PRINCIPAL DASHBOARD
+
+Create a complete Principal dashboard.
+
+## Statistics
+
+- Total students.
+- Total parents.
+- Total teachers.
+- Total staff.
+- Present students.
+- Absent students.
+- Pending homework.
+- Assignment submissions.
+- Upcoming examinations.
+- Fee overview.
+- Pending admission applications.
+- School activity engagement.
+- Recent announcements.
+
+## Principal Navigation
+
+- Overview.
+- Students.
+- Teachers.
+- Staff.
+- Technical Department.
+- Parents.
+- Classes.
+- Sections.
+- Subjects.
+- Homework.
+- Attendance.
+- Assignments.
+- Examinations.
+- Results.
+- Daily Diary.
+- Timetable.
+- Notices.
+- School Posts.
+- Events.
+- Fees.
+- Reports.
+- Settings.
+- Account Management.
+
+## Account Management
+
+Principal can:
+
+- Invite teachers.
+- Invite staff.
+- Create school-specific user accounts.
+- Assign roles.
+- Assign permissions.
+- Assign classes.
+- Assign subjects.
+- Assign departments.
+- Activate accounts.
+- Suspend accounts.
+- Reset credentials through secure workflows.
+- View account activity.
+
+Principal assigns Technical Department access separately.
+
+A Principal must not automatically receive unlimited technical or sensitive data access merely because they are the Principal.
+
+---
+
+# PART 8 — TEACHER DASHBOARD
+
+Create a complete teacher dashboard.
+
+## Overview
+
+- Assigned classes.
+- Assigned subjects.
+- Today's routine.
+- Attendance tasks.
+- Homework.
+- Pending assignment reviews.
+- Student progress.
+- Messages.
+- Notices.
+- Upcoming events.
+
+## Teacher Features
+
+- Create homework.
+- Edit homework.
+- Publish homework.
+- Schedule homework.
+- Upload attachments.
+- Create assignments.
+- Review submissions.
+- Give marks.
+- Send feedback.
+- Mark attendance.
+- Create examination questions.
+- Enter examination marks.
+- Create student progress reports.
+- Add daily diary entries.
+- Send parent messages.
+- Request meetings.
+- Publish class activities.
+- Upload educational resources.
+- Create eligible social posts.
+
+## Teacher-Controlled Student Accounts
+
+Teacher can create student login accounts for assigned classes.
+
+Form:
+
+- Student name.
+- Class.
+- Section.
+- Roll number.
+- Admission number.
+- Joining year.
+- Guardian name.
+- Guardian phone.
+- Email, where available.
+- Address, where required.
+
+The backend obtains the School ID automatically.
+
+Teacher clicks:
+
+`CREATE STUDENT ACCOUNT`
+
+System generates:
+
+- Student ID.
+- Username.
+- Secure one-time temporary password.
+- Student account status.
+- Login invitation.
+
+Teacher can generate printable class login cards.
+
+### Important Student Database Ownership
+
+Technical Department owns master student database management, identity corrections, record merges, bulk imports and sensitive documents.
+
+Teachers can:
+
+- Create student entries within assigned classes.
+- Generate student login accounts.
+- Manage permitted classroom details.
+- Submit corrections.
+- Initiate parent invitations.
+
+Depending on school policy, teacher-created records can become provisional records or verified enrollments.
+
+Sensitive identity changes and enrollment reconciliation must follow the designated school approval process.
+
+## Bulk Student Creation
+
+Support:
+
+- Single student.
+- Multiple students.
+- XLSX.
+- CSV.
+
+Provide:
+
+- Import template.
+- Preview.
+- Duplicate detection.
+- Validation.
+- Error display.
+- Confirm import.
+- Batch processing.
+- Import report.
+
+## Student Login Cards
+
+Generate PDFs with:
+
+- School name.
+- School logo.
+- School ID.
+- Student name.
+- Student ID.
+- Class.
+- Section.
+- Temporary password.
+- Login instructions.
+
+Temporary passwords must be revealed only through an authorized secure generation process. Never store them in plain text.
+
+---
+
+# PART 9 — TECHNICAL DEPARTMENT DASHBOARD
+
+This dashboard exclusively handles authorized student information database operations.
+
+## Features
+
+- Student database.
+- Add Student.
+- Bulk Import.
+- Class Records.
+- Enrollment Records.
+- Admission Records.
+- Documents.
+- Parent Linking.
+- Duplicate Detection.
+- Correction Requests.
+- Student Account Management.
+- Student ID Generation.
+- Reports.
+- Database Audit Logs.
+
+## Student Information
+
+- Student full name.
+- Photograph.
+- Date of birth.
+- Admission number.
+- Student ID.
+- Class.
+- Section.
+- Roll number.
+- Joining year.
+- Academic session.
+- Address.
+- Guardian name.
+- Guardian relationship.
+- Guardian phone.
+- Parent email.
+- Emergency contact.
+- Admission documents.
+- Enrollment status.
+
+## Technical Controls
+
+- Add records.
+- Edit permitted information.
+- Import Excel.
+- Export authorized records.
+- Resolve duplicates.
+- Create invitations.
+- Resolve account-linking problems.
+- Archive records.
+- Process corrections.
+
+The dashboard must not automatically expose confidential counselling, financial or unrelated academic information.
+
+---
+
+# PART 10 — STAFF DASHBOARD
+
+Create a separate dashboard for every staff department.
+
+## Administration Staff
+
+- Visitor records.
+- Parent requests.
+- Admission inquiries.
+- School documents.
+
+## Accounts Staff
+
+- Invoices.
+- Payments.
+- Receipts.
+- Expenses.
+- Financial reports.
+
+## Library Staff
+
+- Books.
+- Categories.
+- Book issues.
+- Book returns.
+- Stock.
+
+## Transport Staff
+
+- Vehicles.
+- Drivers.
+- Routes.
+- Stops.
+- Student assignments.
+
+## Reception
+
+- Visitors.
+- Inquiries.
+- Appointments.
+- General requests.
+
+## Technical Support
+
+- Support tickets.
+- Device records.
+- Troubleshooting.
+- Service reports.
+
+Department-specific access is mandatory.
+
+---
+
+# PART 11 — STUDENT DASHBOARD
+
+Make the student interface simple, attractive and age-appropriate.
+
+## Navigation
+
+- Home.
+- Homework.
+- Assignments.
+- Routine.
+- Attendance.
+- Results.
+- AI Learning.
+- School Diary.
+- Messages.
+- Global Feed.
+- My School.
+- My Profile.
+- Achievements.
+- Library.
+- Notifications.
+
+## Student Actions
+
+- View homework.
+- Submit homework.
+- Upload photographs.
+- Upload PDF.
+- Submit assignments.
+- View feedback.
+- View published examination results.
+- View routine.
+- View attendance.
+- View notices.
+- View daily diary.
+- Contact authorized teachers.
+- Ask AI learning questions.
+- Create approved social posts.
+- Upload projects.
+- Share educational achievements.
+- Join permitted communities.
+
+Students cannot edit official examination results or attendance.
+
+---
+
+# PART 12 — PARENT DASHBOARD
+
+## Navigation
+
+- Home.
+- My Children.
+- Global Feed.
+- My School.
+- Homework.
+- Attendance.
+- Results.
+- Routine.
+- School Diary.
+- Teachers.
+- Messages.
+- Calls.
+- Fees.
+- Requests.
+- Events.
+- Saved Posts.
+- Profile.
+- Settings.
+
+## Parent Features
+
+- Multiple children.
+- Multiple verified school memberships.
+- View attendance.
+- View homework.
+- View results.
+- View routine.
+- View examination schedules.
+- View teacher remarks.
+- View school diary.
+- View school notices.
+- View activities.
+- Contact authorized teachers.
+- Request calls.
+- Schedule meetings.
+- Apply leave.
+- Submit corrections.
+- Pay school fees through configured gateways.
+- Download receipts.
+- Save posts.
+- Share permitted content.
+- Participate in school community.
+
+A parent can see only their verified children.
+
+A parent cannot create a guardian relationship using only the child's name, roll number or class.
+
+Use invitation codes, QR codes, school verification and approval workflows.
+
+---
+
+# PART 13 — GLOBAL FEED AND MY SCHOOL
+
+These two environments must work independently.
+
+## 13.1 GLOBAL FEED
+
+Show permitted public or global-community content from:
+
+- Verified schools.
+- Teachers.
+- Principals.
+- Staff.
+- Parents.
+- Students, subject to safeguarding.
+- Educational communities.
+- School clubs.
+
+Features:
+
+- For You.
+- Following.
+- Schools.
+- Teachers.
+- Educational Projects.
+- Achievements.
+- Events.
+- Videos.
+- Photos.
+- Communities.
+- Search.
+
+Users can discover other schools and educational activities.
+
+They can follow schools and make eligible connection requests.
+
+Viewing another school's public post does not grant access to its database.
+
+## 13.2 MY SCHOOL
+
+Only authorized content of the active school.
+
+Features:
+
+- Official school feed.
+- School page.
+- Notices.
+- Activities.
+- Teacher posts.
+- Class updates.
+- School photos.
+- School videos.
+- Events.
+- Approved community posts.
+- School information.
+
+A user who is not a verified member must not automatically see the private My School feed.
+
+## 13.3 Publishing Destinations
+
+Post audience:
+
+- Public.
+- Global Community.
+- Connections.
+- My School.
+- Selected School Community.
+- Class Community.
+- Selected Users.
+- Private.
+
+Actual choices must depend on role and safety policy.
+
+The publishing service must verify audience eligibility on the backend.
+
+## 13.4 Global Content Publishing Gateway
+
+School-private content must never be copied directly into the Global Feed.
+
+Implement:
+
+School Post → Audience Verification → Privacy Validation → Moderation → Approved Public Projection → Global Feed.
+
+Private academic records must remain private.
+
+---
+
+# PART 14 — FACEBOOK-INSPIRED PROFILE SYSTEM
+
+Create original social networking UI based on familiar profile patterns.
+
+Do not copy proprietary branding, logos or protected assets.
+
+Every eligible account gets:
+
+- Profile photo.
+- Cover photo.
+- Username.
+- Name.
+- Biography.
+- School affiliation.
+- Verification status.
+- Profile tabs.
+- Posts.
+- Photos.
+- Videos.
+- Achievements.
+- Activity history.
+- About.
+- Privacy settings.
+
+## Profile Types
+
+### School Profile
+
+- Logo.
+- Cover.
+- About.
+- Website.
+- Address.
+- Contact.
+- Posts.
+- Activities.
+- Photos.
+- Videos.
+- Events.
+- Achievements.
+- Followers.
+
+### Principal Profile
+
+- Professional introduction.
+- Designation.
+- Education.
+- Experience.
+- School affiliation.
+- Posts.
+- Achievements.
+
+### Teacher Profile
+
+- Subject.
+- Qualification.
+- Teaching experience.
+- Assigned classes.
+- Educational resources.
+- Posts.
+- Achievements.
+
+### Staff Profile
+
+- Department.
+- Designation.
+- Experience.
+- Official activities.
+
+### Student Profile
+
+- Profile picture.
+- Class.
+- School.
+- Achievements.
+- Projects.
+- Approved posts.
+- Activities.
+
+Protect student age, address, phone, email, results, attendance and guardianship information.
+
+### Parent Profile
+
+- Personal information.
+- Linked school memberships.
+- Approved posts.
+- Saved posts.
+- Activities.
+
+## Profile Management
+
+- Upload avatar.
+- Upload cover.
+- Crop image.
+- Edit bio.
+- Edit allowed information.
+- Generate QR.
+- Share profile.
+- View as.
+- Privacy settings.
+- Block/report.
+- Manage profile tabs.
+
+---
+
+# PART 15 — SOCIAL NETWORKING FEATURES
+
+## Universal Post Composer
+
+Every eligible account gets a post creation option.
+
+Formats:
+
+- Text.
+- Single image.
+- Multiple images.
+- Albums.
+- Videos.
+- Short videos.
+- PDFs.
+- Documents.
+- Polls.
+- Events.
+- Achievements.
+- Educational projects.
+- Educational resources.
+
+## Interactions
+
+- Like.
+- Love.
+- Celebrate.
+- Support.
+- Comment.
+- Reply.
+- Mention.
+- Share.
+- Save.
+- Bookmark.
+- Repost where enabled.
+- Report.
+- Hide.
+
+## Advanced Posts
+
+- Edit.
+- Delete.
+- Archive.
+- Pin.
+- Schedule.
+- Disable comments.
+- Audience selection.
+- Media management.
+- Post analytics.
+
+## Connections
+
+- Follow.
+- Unfollow.
+- Send request.
+- Accept.
+- Reject.
+- Cancel.
+- Remove connection.
+- Block.
+- Mute.
+- Report.
+
+Social connections must never replace formal school membership or parent-student verification.
+
+## Student Safety
+
+Students cannot receive unrestricted adult messages or public contact exposure.
+
+Provide school-approved educational interaction channels and moderated student groups.
+
+---
+
+# PART 16 — GLOBAL SCHOOL DIRECTORY
+
+Add searchable global school discovery.
+
+Filters:
+
+- Country.
+- Province.
+- District.
+- Municipality.
+- School name.
+- School code.
+- School type.
+- Education levels.
+
+School cards contain:
+
+- Logo.
+- School name.
+- Location.
+- Verification.
+- Description.
+- Follow.
+- View Profile.
+- Public activities.
+- Events.
+
+Include an opt-in school map.
+
+School locations must be institution-level locations, not private home addresses.
+
+## School Collaboration
+
+- School connection requests.
+- Inter-school events.
+- Competitions.
+- Educational exhibitions.
+- Teacher workshops.
+- Shared learning resources.
+- Joint projects.
+- School collaboration groups.
+
+Schools can discover publicly published activities of other institutions.
+
+Do not present public activity counts as proof of academic quality.
+
+Optional school rankings must use transparent criteria and should not expose individual students' private performance.
+
+---
+
+# PART 17 — GROUPS AND EDUCATIONAL COMMUNITIES
+
+Create:
+
+- School groups.
+- Class groups.
+- Teacher groups.
+- Parent groups.
+- Student learning groups.
+- Subject groups.
+- Sports clubs.
+- Music clubs.
+- Programming clubs.
+- Science clubs.
+- Public educational groups.
+
+Features:
+
+- Group profile.
+- Cover photo.
+- Description.
+- Members.
+- Moderators.
+- Invitations.
+- Posts.
+- Announcements.
+- Documents.
+- Photos.
+- Videos.
+- Polls.
+- Events.
+- Comments.
+- Reporting.
+
+Cross-school student communities require age-appropriate moderation and approved adult supervision.
+
+---
+
+# PART 18 — HOMEWORK AND ASSIGNMENT MANAGEMENT
+
+## Homework Builder
+
+Teachers select:
+
+- Class.
+- Section.
+- Subject.
+- Title.
+- Instructions.
+- Attachments.
+- Due date.
+- Due time.
+- Submission method.
+
+Students can submit:
+
+- Text.
+- Photograph.
+- PDF.
+- Document.
+- Video, when enabled.
+
+## Homework Workflow
+
+Draft → Scheduled → Published → Viewed → Submitted → Reviewed → Feedback → Completed.
+
+## Assignment System
+
+- Multiple questions.
+- Different question types.
+- Marks.
+- Rubrics.
+- Group submissions.
+- Individual submissions.
+- Late submission.
+- Resubmission.
+- Teacher grading.
+- Feedback.
+
+Parents receive configurable notifications.
+
+---
+
+# PART 19 — AI HOMEWORK SCANNER
+
+Build a working AI image and document scanner.
+
+## User Flow
+
+1. Student opens AI Scanner.
+2. Takes a photograph or uploads a file.
+3. Crops or rotates the image.
+4. Selects subject.
+5. Selects learning mode.
+6. Backend validates the upload.
+7. AI extracts the question.
+8. AI provides an explanation.
+9. Result appears in the student dashboard.
+
+## AI Providers
+
+Support:
+
+- Google Gemini.
+- OpenAI.
+
+Build an interchangeable provider gateway.
+
+Never expose API keys in frontend code.
+
+## Learning Modes
+
+- Hint Mode.
+- Explain Mode.
+- Step-by-Step Mode.
+- Practice Mode.
+- Check My Answer.
+- Exam Preparation.
+- Voice Explanation.
+- Nepali Explanation.
+- English Explanation.
+
+## Output
+
+- Detected Question.
+- Subject.
+- Topic.
+- Concepts.
+- Formulas.
+- Step-by-step answer.
+- Final solution.
+- Verification.
+- Practice question.
+
+## AI Safety
+
+- Label AI-generated responses.
+- Explain uncertainty.
+- Handle unreadable images.
+- Use grade-appropriate language.
+- Prevent automatic academic submission.
+- Provide usage quotas.
+- Monitor AI costs.
+- Restrict unsafe requests.
+- Respect student and school privacy.
+- Apply appropriate consent and data-processing rules.
+
+---
+
+# PART 20 — ATTENDANCE MANAGEMENT
+
+Support:
+
+- Teacher-marked attendance.
+- Authorized staff attendance.
+- QR attendance.
+- Approved RFID integration.
+- Optional school-controlled biometric integration with appropriate legal safeguards.
+
+Statuses:
+
+- Present.
+- Absent.
+- Late.
+- Excused.
+
+Provide:
+
+- Daily.
+- Weekly.
+- Monthly.
+- Student-wise.
+- Class-wise.
+- Section-wise.
+- Staff attendance reports.
+
+Parents receive configured attendance notifications.
+
+Students cannot edit official records.
+
+Attendance correction requests require approval.
+
+---
+
+# PART 21 — EXAMINATION AND RESULTS
+
+Build complete examination management.
+
+## Exam Creation
+
+- Exam name.
+- Academic session.
+- Class.
+- Section.
+- Subject.
+- Date.
+- Duration.
+- Full marks.
+- Pass marks.
+- Instructions.
+
+## Marking
+
+- Theory.
+- Practical.
+- Internal assessment.
+- Assignment.
+- Project.
+- Total.
+- Percentage.
+- Grade.
+- GPA where configured.
+- Pass/fail.
+
+## Approval Workflow
+
+Draft → Teacher Submission → Examination Review → Principal Approval → Publication.
+
+## Report Card
+
+- School branding.
+- Student information.
+- Subject marks.
+- Total.
+- Percentage.
+- Grade.
+- GPA.
+- Attendance.
+- Remarks.
+- Signature.
+- Verification QR.
+
+Only authorized users can edit or approve marks.
+
+Students and parents see published results only.
+
+---
+
+# PART 22 — DIGITAL DAILY DIARY
+
+Every class can have its own daily diary.
+
+Fields:
+
+- Date.
+- Subject.
+- Topic.
+- Classwork.
+- Homework.
+- Materials.
+- Teacher.
+- Remarks.
+- Next-day preparation.
+
+Features:
+
+- Daily archive.
+- Weekly view.
+- Class filters.
+- PDF export.
+- Parent access.
+- Student access.
+- Diary notifications.
+
+---
+
+# PART 23 — TIMETABLE AND SCHOOL CALENDAR
+
+Timetable:
+
+- Class.
+- Subject.
+- Teacher.
+- Period.
+- Time.
+- Room.
+- Break.
+- Examination schedule.
+
+Prevent teacher and room double-booking.
+
+Calendar:
+
+- Holidays.
+- Exams.
+- Events.
+- School trips.
+- Parent meetings.
+- Sports.
+- Annual events.
+- Admission deadlines.
+
+Support printable and mobile views.
+
+---
+
+# PART 24 — SCHOOL NOTICE AND ACTIVITY SYSTEM
+
+Notice types:
+
+- General.
+- Holiday.
+- Examination.
+- Fee.
+- Admission.
+- Emergency.
+- Parent meeting.
+- Event.
+- Class-specific.
+- Staff-only.
+
+Features:
+
+- Audience selection.
+- Publish scheduling.
+- Expiry date.
+- Attachments.
+- PDF.
+- Images.
+- Priority.
+- Read receipts.
+- Notification delivery.
+- Archive.
+
+School activity posts support albums and videos.
+
+---
+
+# PART 25 — MESSAGING, CALLING AND APPOINTMENTS
+
+Implement real-time communication.
+
+## Messaging
+
+- One-to-one conversations.
+- Authorized group conversations.
+- Text.
+- Images.
+- Documents.
+- Voice messages.
+- Replies.
+- Reactions.
+- Read receipts.
+- Delivery receipts.
+- Typing status.
+- Message search.
+- Block/report.
+- Message notifications.
+
+## Calling
+
+Use WebRTC or an appropriate configured communication provider.
+
+Support:
+
+- Audio calls.
+- Video meetings.
+- Incoming call alerts.
+- Missed calls.
+- Meeting requests.
+- Appointment schedules.
+- Office hours.
+- Call restrictions.
+
+Do not expose personal phone numbers by default.
+
+Student communications must follow school safeguarding policies and cannot be unrestricted.
+
+## Communication Rules
+
+- Parent contacts authorized teacher.
+- Teacher contacts guardians of assigned students.
+- Principal contacts school members.
+- Staff contacts permitted users.
+- Eligible global social connections communicate under privacy and safety rules.
+
+---
+
+# PART 26 — AUTOMATIC AI MODERATION AND THREE-STRIKE BAN
+
+Build a centralized safety engine.
+
+Scan:
+
+- Posts.
+- Messages when reported or according to disclosed safety policy.
+- Comments.
+- Replies.
+- Images.
+- Videos.
+- Profile pictures.
+- Cover pictures.
+- Documents.
+- Links.
+- Group content.
+
+Detect:
+
+- Spam.
+- Fake messages.
+- Scam links.
+- Phishing.
+- Impersonation.
+- Harassment.
+- Bullying.
+- Threats.
+- Nudity.
+- Explicit sexual content.
+- Exploitative content.
+- Malicious files.
+- Automated bot behaviour.
+
+## Moderation Actions
+
+Low risk: Publish.
+
+Uncertain: Hold for review.
+
+High confidence prohibited content: Block or remove.
+
+Critical child-safety threats: Immediately restrict and escalate.
+
+Ordinary three-strike policy:
+
+First confirmed violation:
+- Remove offending content.
+- Send warning.
+- Record strike 1.
+
+Second confirmed violation:
+- Remove content.
+- Send warning.
+- Temporary restriction, such as seven days.
+- Record strike 2.
+
+Third confirmed violation:
+- Ban account.
+- Revoke sessions.
+- Disable social actions.
+- Record strike 3.
+- Notify user.
+- Permit appeal.
+
+Severe threats and child exploitation can trigger immediate suspension without waiting for three strikes.
+
+Three reports do not count as three violations.
+
+AI must account for educational and medical context, false positives and uncertainty.
+
+## Moderation Dashboard
+
+- Reports.
+- Detected spam.
+- Inappropriate content.
+- Fake accounts.
+- Suspensions.
+- Bans.
+- Appeals.
+- Audit logs.
+
+## Appeals
+
+- Appeal content removal.
+- Appeal strike.
+- Appeal suspension.
+- Appeal ban.
+- Submit explanation.
+- Review outcome.
+
+Successful appeals must restore eligible content and remove incorrect strikes.
+
+Never expose illegal child exploitation content to ordinary moderators or school staff. Preserve only legally necessary restricted evidence using secure safeguarding workflows.
+
+---
+
+# PART 27 — PARENT-STUDENT LINKING SYSTEM
+
+Parent access must be verified.
+
+## Linking Methods
+
+- One-time invitation code.
+- Secure QR.
+- School-approved identity verification.
+- Invitation from the student's account or school.
+
+Workflow:
+
+Parent selects school → Registers → Verifies contact → Enters invitation → School checks relationship → Approval → Parent gains authorized access.
+
+Support:
+
+- Multiple children.
+- Multiple guardians.
+- Different schools.
+- Primary guardian.
+- Secondary guardian.
+- Emergency guardian.
+- Revocation.
+- Transfer.
+
+Never rely only on student name, class or roll number.
+
+---
+
+# PART 28 — FEES AND PAYMENT MANAGEMENT
+
+Implement:
+
+- Fee structures.
+- Tuition fees.
+- Admission fees.
+- Examination fees.
+- Transport fees.
+- Discounts.
+- Scholarships.
+- Installments.
+- Invoices.
+- Outstanding amounts.
+- Payment history.
+- Receipts.
+- Refunds.
+- Financial reports.
+
+Integrate payment gateways through server-side adapters.
+
+For Nepal, design adapter interfaces for approved payment providers such as eSewa, Khalti or bank payment services, subject to merchant onboarding and credentials.
+
+Never trust browser payment success.
+
+Verify payment status through signed webhooks or server-side gateway verification.
+
+---
+
+# PART 29 — ADDITIONAL SCHOOL MODULES
+
+Implement fully functional modules:
+
+1. Admission Management.
+2. Library Management.
+3. Transport Management.
+4. Inventory Management.
+5. Staff Attendance.
+6. Leave Management.
+7. Certificate Generation.
+8. Document Management.
+9. Online Classes.
+10. Student Achievements.
+11. School Event Management.
+12. Technical Support Tickets.
+13. Parent Requests.
+14. School Expense Management.
+15. Visitor Management.
+16. Asset Management.
+17. School Facilities.
+18. School Calendar.
+19. Alumni Records, where enabled.
+
+Each module must use proper permissions and school-specific storage.
+
+---
+
+# PART 30 — REPORTS AND ANALYTICS
+
+## Principal
+
+- Enrollment.
+- Attendance.
+- Examination.
+- Class performance.
+- Subject performance.
+- Homework completion.
+- Staff activity.
+- Fee collection.
+- Admissions.
+
+## Teacher
+
+- Student progress.
+- Class performance.
+- Homework.
+- Assignment completion.
+- Attendance.
+- Subject reports.
+
+## Parent
+
+- Child attendance.
+- Published results.
+- Homework.
+- Academic progress.
+- Fee statements.
+
+## Technical Department
+
+- Student data quality.
+- Missing records.
+- Duplicate records.
+- Account activation.
+- Parent linking.
+- Import history.
+
+## Global Platform
+
+- Active schools.
+- Verified schools.
+- User registrations.
+- Daily active users.
+- Global post activity.
+- Moderation statistics.
+- Storage usage.
+- System health.
+
+Export:
+
+- PDF.
+- Excel.
+- CSV.
+
+Every export must enforce permissions and create an audit record.
+
+---
+
+# PART 31 — TECHNICAL ARCHITECTURE
+
+Use a modular, scalable TypeScript stack.
+
+## Frontend
+
+- Next.js.
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Accessible component system.
+- React Hook Form.
+- Zod.
+- TanStack Query.
+- PWA capabilities.
+
+## Backend
+
+- Node.js.
+- Express.js with TypeScript.
+- REST API.
+- WebSockets / Socket.IO.
+- Modular service architecture.
+- Server-side validation.
+- Role and permission middleware.
+
+NestJS may be used instead if the existing repository is already built around it. Do not mix incompatible patterns unnecessarily.
+
+## Database
+
+- PostgreSQL.
+- Prisma ORM.
+- Proper migrations.
+- Foreign keys.
+- Composite constraints.
+- Row-Level Security where appropriate.
+
+## Supporting Infrastructure
+
+- Redis for caching, presence and rate limits.
+- Background job queue.
+- S3-compatible object storage.
+- Image processing.
+- Video processing.
+- Search service when needed.
+- Centralized logging.
+- Error monitoring.
+
+## AI
+
+- Gemini provider adapter.
+- OpenAI provider adapter.
+- Secure key storage.
+- Usage quotas.
+- Cost tracking.
+
+## Realtime
+
+- Socket.IO for messaging and live updates.
+- WebRTC for calling.
+- Configurable STUN/TURN infrastructure.
+
+## Deployment
+
+- Docker.
+- Environment-specific configuration.
+- CI/CD.
+- Staging.
+- Production.
+- Database backups.
+- Automated migrations.
+- Health checks.
+
+Choose the appropriate deployment providers based on actual availability and budget. Do not assume a free hosting plan supports every infrastructure requirement.
+
+---
+
+# PART 32 — DATABASE SCHEMA DESIGN
+
+Create a normalized relational schema.
+
+## A. Platform and Identity
+
+- global_users
+- user_profiles
+- user_credentials
+- user_sessions
+- user_roles
+- role_permissions
+- user_permissions
+- account_verifications
+- account_security_events
+- account_devices
+
+## B. Schools
+
+- schools
+- school_codes
+- school_verifications
+- school_memberships
+- school_settings
+- school_domains
+- school_academic_sessions
+- school_subscriptions
+
+## C. Academic Structure
+
+- classes
+- sections
+- subjects
+- class_subjects
+- rooms
+- teacher_assignments
+- class_enrollments
+- student_admissions
+- student_transfers
+
+## D. Students and Parents
+
+- students
+- student_accounts
+- parents
+- guardians
+- student_guardians
+- parent_invitations
+- guardian_linking_codes
+- student_documents
+- student_account_activations
+
+## E. Teachers and Staff
+
+- teachers
+- staff
+- departments
+- staff_permissions
+- employment_records
+- staff_invitations
+
+## F. Academic Features
+
+- homework
+- homework_attachments
+- homework_submissions
+- homework_feedback
+- assignments
+- assignment_questions
+- assignment_submissions
+- examinations
+- examination_subjects
+- student_marks
+- report_cards
+- academic_performance_records
+- daily_diaries
+- diary_entries
+- timetables
+- attendance_sessions
+- student_attendance
+- staff_attendance
+
+## G. School Content
+
+- school_notices
+- school_posts
+- school_post_media
+- school_events
+- school_albums
+- school_documents
+- school_activities
+
+## H. Global Social
+
+- global_posts
+- global_post_media
+- post_audiences
+- post_reactions
+- post_comments
+- comment_replies
+- post_shares
+- post_saves
+- post_mentions
+- follows
+- connection_requests
+- social_connections
+- user_blocks
+- user_mutes
+
+## I. Profiles and Media
+
+- profile_photos
+- profile_cover_media
+- profile_sections
+- profile_visibility_settings
+- photo_albums
+- album_media
+- video_assets
+- stories
+- profile_verifications
+
+## J. Groups and Events
+
+- global_groups
+- group_members
+- group_posts
+- group_moderators
+- group_events
+- polls
+- poll_options
+- poll_votes
+- school_collaboration_requests
+- inter_school_events
+
+## K. Communication
+
+- conversations
+- conversation_members
+- messages
+- message_attachments
+- message_reads
+- calls
+- meeting_appointments
+
+## L. AI
+
+- ai_requests
+- ai_provider_settings
+- ai_usage_records
+- ai_conversations
+- ai_attachments
+- ai_cost_records
+
+## M. Moderation
+
+- moderation_cases
+- moderation_reports
+- moderation_decisions
+- moderation_strikes
+- moderation_appeals
+- content_scan_results
+- content_quarantine
+- user_restrictions
+- banned_accounts
+- safety_escalations
+
+## N. Financial
+
+- fee_categories
+- fee_structures
+- student_invoices
+- payments
+- payment_transactions
+- payment_receipts
+- scholarships
+- expenses
+- refunds
+
+## O. Supporting Modules
+
+- library_books
+- book_issues
+- buses
+- drivers
+- transport_routes
+- route_stops
+- student_transport
+- inventory_assets
+- leave_requests
+- certificates
+- support_tickets
+- ticket_messages
+
+## P. Security and Auditing
+
+- audit_logs
+- data_access_logs
+- export_logs
+- security_events
+- consent_records
+- publication_approvals
+- retention_jobs
+
+## Database Rules
+
+1. Use UUID primary keys where appropriate.
+2. Use foreign keys.
+3. Use proper indexes.
+4. Add unique constraints.
+5. Use transactions for sensitive workflows.
+6. Validate school ownership.
+7. Protect parent-student relationships.
+8. Prevent duplicate enrollment.
+9. Track academic session.
+10. Track created_at and updated_at.
+11. Track created_by.
+12. Support archival and retention.
+13. Never store plaintext passwords.
+14. Store secrets outside the database where possible.
+15. Avoid excessive duplication of personal information.
+
+---
+
+# PART 33 — BACKEND MODULE STRUCTURE
+
+Organize the backend into these modules:
+
+- Auth.
+- Identity.
+- School.
+- Tenant.
+- User.
+- Account.
+- Role.
+- Permission.
+- Principal.
+- Teacher.
+- Staff.
+- Technical.
+- Student.
+- Parent.
+- Guardian.
+- Class.
+- Section.
+- Subject.
+- Homework.
+- Assignment.
+- Attendance.
+- Examination.
+- Result.
+- Diary.
+- Timetable.
+- Notice.
+- Activity.
+- Profile.
+- Social.
+- Global Feed.
+- My School.
+- Groups.
+- Events.
+- Messaging.
+- Calling.
+- Notification.
+- AI.
+- Moderation.
+- Fees.
+- Payment.
+- Library.
+- Transport.
+- Admission.
+- Inventory.
+- Certificate.
+- Support.
+- Reports.
+- Analytics.
+- Audit.
+- Security.
+
+Use:
+
+- Controllers.
+- Services.
+- Repositories.
+- DTOs.
+- Validation schemas.
+- Authorization policies.
+- Domain entities.
+- Background workers.
+
+Avoid enormous controllers and tightly coupled application logic.
+
+---
+
+# PART 34 — API REQUIREMENTS
+
+All endpoints must be versioned.
+
+Use:
+
+`/api/v1`
+
+Example endpoint families:
+
+## Authentication
+
+- POST `/auth/login`
+- POST `/auth/logout`
+- POST `/auth/refresh`
+- POST `/auth/forgot-password`
+- POST `/auth/reset-password`
+- POST `/auth/verify-phone`
+- POST `/auth/verify-email`
+- GET `/auth/me`
+
+## Schools
+
+- POST `/schools/register`
+- GET `/schools/discover`
+- GET `/schools/:schoolId`
+- PATCH `/schools/:schoolId`
+- GET `/schools/:schoolId/members`
+
+## Students
+
+- GET `/schools/:schoolId/students`
+- POST `/schools/:schoolId/students`
+- PATCH `/students/:studentId`
+- POST `/students/import/preview`
+- POST `/students/import/confirm`
+- POST `/students/:studentId/account`
+- POST `/students/:studentId/parent-invitation`
+
+## Parents
+
+- POST `/parents/register`
+- POST `/parents/link-child`
+- GET `/parents/me/children`
+- GET `/parents/me/requests`
+
+## Academic
+
+- POST `/homework`
+- GET `/homework`
+- POST `/homework/:id/submit`
+- POST `/assignments`
+- POST `/attendance/sessions`
+- POST `/attendance/mark`
+- POST `/examinations`
+- POST `/results`
+- POST `/results/:id/approve`
+
+## Social
+
+- GET `/global/feed`
+- GET `/global/feed/following`
+- GET `/global/feed/trending`
+- POST `/social/posts`
+- POST `/social/posts/:id/react`
+- POST `/social/posts/:id/comment`
+- POST `/social/posts/:id/save`
+- POST `/social/connections/request`
+- POST `/social/follow`
+
+## My School
+
+- GET `/schools/:schoolId/feed`
+- GET `/schools/:schoolId/notices`
+- GET `/schools/:schoolId/events`
+
+## Messaging
+
+- GET `/messages`
+- POST `/messages`
+- POST `/messages/:id/attachments`
+- POST `/messages/:id/report`
+
+## AI
+
+- POST `/ai/homework-scan`
+- POST `/ai/explain`
+- POST `/ai/practice`
+- GET `/ai/usage`
+
+## Moderation
+
+- POST `/moderation/report`
+- GET `/moderation/cases`
+- POST `/moderation/appeals`
+- POST `/moderation/accounts/:id/restrict`
+
+## All API Rules
+
+- Authentication required where applicable.
+- Server-side authorization.
+- Tenant isolation.
+- Input validation.
+- Output sanitization.
+- Rate limiting.
+- Consistent error responses.
+- Request tracing.
+- Audit logging for sensitive operations.
+
+Never trust route parameters as proof of authorization.
+
+---
+
+# PART 35 — UI/UX DESIGN SYSTEM
+
+Build a premium, modern and consistent interface.
+
+## Visual Style
+
+- Deep navy primary.
+- Royal blue accents.
+- Cyan/teal highlights.
+- Light neutral backgrounds.
+- Elegant dark mode.
+- Professional typography.
+- Rounded cards.
+- Soft shadows.
+- Clear spacing.
+- Accessible contrast.
+- Clean data tables.
+- Modern charts.
+
+## Desktop Layout
+
+- Left sidebar.
+- Top navigation.
+- Search.
+- Notifications.
+- Messages.
+- School/account switcher.
+- Main content.
+- Right contextual panel where appropriate.
+
+## Mobile Layout
+
+- Responsive top navigation.
+- Bottom navigation.
+- Floating Add button.
+- Mobile-friendly forms.
+- Camera upload.
+- Compact tables.
+- Touch-friendly interactions.
+
+## Design Requirements
+
+- Every form has labels.
+- Every action has feedback.
+- Every page has loading state.
+- Every list has empty state.
+- Every failed request has error state.
+- Destructive actions need confirmation.
+- Long lists use pagination or virtualization.
+- Modals must be responsive.
+- Search should be usable on mobile.
+- Keyboard navigation must work.
+- Accessibility must be considered.
+
+## Performance
+
+Optimize for lower-end Android phones and low-bandwidth connections.
+
+Avoid unnecessarily heavy animations and large image downloads.
+
+---
+
+# PART 36 — ACCOUNT CENTER AND SECURITY
+
+Create a centralized Account Center.
+
+## Personal Information
+
+- Name.
+- Username.
+- Email.
+- Phone.
+- Profile image.
+- Biography.
+
+## Privacy
+
+- Profile visibility.
+- Post visibility.
+- Comment permissions.
+- Message permissions.
+- Call permissions.
+- Search discoverability.
+- Media visibility.
+
+## Security
+
+- Change password.
+- MFA.
+- Active sessions.
+- Trusted devices.
+- Login history.
+- Suspicious activity.
+- Log out all devices.
+- Account recovery.
+
+## Account Management
+
+- Switch account.
+- Switch authorized school.
+- Export personal information.
+- Manage consent.
+- Request correction.
+- Request account deletion.
+
+Account-level privacy settings cannot override child-protection rules or school membership restrictions.
+
+---
+
+# PART 37 — CHILD PRIVACY AND SAFEGUARDING
+
+This application includes minors. Treat student information as highly sensitive.
+
+Mandatory requirements:
+
+- Verified guardians.
+- Role-based contact controls.
+- Restricted public profiles.
+- Safe photo publication.
+- Consent-aware media uploads.
+- Adult-to-student communication restrictions.
+- Student group supervision.
+- Reporting system.
+- Secure private messages.
+- Restricted location data.
+- Sensitive academic information protection.
+- Safeguarding escalation process.
+
+Never expose student home addresses, personal phone numbers, private emails, attendance, grades, counselling records or guardian data to global users.
+
+Do not use sensitive student information for social-feed personalization.
+
+---
+
+# PART 38 — NOTIFICATION ENGINE
+
+Implement in-app notifications.
+
+Optional delivery adapters:
+
+- Email.
+- SMS.
+- Browser push.
+- Mobile push.
+
+Notification types:
+
+- Homework.
+- Assignments.
+- Results.
+- Attendance.
+- Notices.
+- School events.
+- Messages.
+- Calls.
+- Fee reminders.
+- Connection requests.
+- Comments.
+- Reactions.
+- School announcements.
+- Security alerts.
+- Moderation decisions.
+
+Requirements:
+
+- Notification preferences.
+- Unread count.
+- Mark as read.
+- Mark all as read.
+- Notification history.
+- Retry failed deliveries.
+- Avoid duplicate delivery.
+- Priority handling.
+
+Use background jobs.
+
+---
+
+# PART 39 — PERFORMANCE, SCALABILITY AND RELIABILITY
+
+Build for growth from a small number of schools to a large multi-tenant platform.
+
+Requirements:
+
+- Pagination.
+- Database query optimization.
+- Indexes.
+- Caching.
+- Lazy loading.
+- Image optimization.
+- Background tasks.
+- Queue retries.
+- Rate limits.
+- Connection pooling.
+- Graceful provider failures.
+- Monitoring.
+- Structured logs.
+- Backup and restoration.
+
+Suggested initial production targets, subject to load testing:
+
+- 99.9% monthly availability objective after production maturity.
+- Standard dashboard API p95 target under 500 ms under expected load.
+- Secure backup recovery procedures.
+- Controlled file sizes.
+- Reliable background processing.
+
+Do not promise performance metrics without actual tests.
+
+---
+
+# PART 40 — LOCALIZATION
+
+Support:
+
+- English.
+- Nepali.
+- Future languages.
+
+Requirements:
+
+- Nepali interface translations.
+- English interface translations.
+- AD dates.
+- BS dates.
+- NPR currency.
+- Configurable school currency.
+- Nepal phone number validation.
+- International phone number support.
+- Timezone configuration.
+- Date and number formatting.
+
+Store timestamps consistently and display according to school timezone.
+
+Use properly designed translation dictionaries, not hardcoded text scattered throughout the frontend.
+
+---
+
+# PART 41 — EXTERNAL INTEGRATIONS
+
+Build configurable adapters for:
+
+1. Gemini AI.
+2. OpenAI AI.
+3. Email provider.
+4. SMS provider.
+5. Payment providers.
+6. Object storage.
+7. Video processing.
+8. Push notifications.
+9. Audio/video communication.
+10. Optional map and transport services.
+
+Each integration must support:
+
+- Configuration.
+- Connection verification.
+- Error handling.
+- Usage tracking.
+- Secret management.
+- Enable/disable settings.
+- Failure notifications.
+
+Never claim an external integration is active until credentials and a successful connectivity test are present.
+
+If the API key is missing, clearly display configuration status and keep unrelated features operational.
+
+---
+
+# PART 42 — TESTING REQUIREMENTS
+
+Implement:
+
+- Unit tests.
+- Integration tests.
+- API tests.
+- Database tests.
+- Authentication tests.
+- Authorization tests.
+- Tenant isolation tests.
+- Social feed tests.
+- Parent-linking tests.
+- Account creation tests.
+- File upload tests.
+- AI provider tests.
+- Moderation tests.
+- Notification tests.
+- Mobile responsiveness tests.
+- End-to-end tests.
+
+## Mandatory Critical Scenarios
+
+### Scenario 1: School Isolation
+
+Create School A and School B.
+
+Create students in both.
+
+Attempt to access School B records using School A credentials.
+
+Expected: Access denied.
+
+### Scenario 2: Teacher Creates Student
+
+Teacher logs in.
+
+Opens assigned class.
+
+Creates student account.
+
+System generates student ID.
+
+Temporary login credential is securely issued.
+
+Student logs in and sets a new password.
+
+Expected: Fully functional workflow.
+
+### Scenario 3: Parent Links Child
+
+Parent selects school.
+
+Registers.
+
+Uses invitation code.
+
+School verifies the relationship.
+
+Parent views only the authorized child.
+
+Expected: No unrelated student data.
+
+### Scenario 4: Global Feed
+
+School A creates a public activity post.
+
+School B user views it.
+
+School A creates a private notice.
+
+School B cannot see it.
+
+Expected: Correct audience enforcement.
+
+### Scenario 5: My School
+
+A School A member opens My School.
+
+Only School A authorized content appears.
+
+Switching to another school requires genuine membership.
+
+### Scenario 6: Social Connections
+
+Eligible users send and approve connection requests.
+
+Blocked users cannot bypass restrictions.
+
+Student safeguards remain active.
+
+### Scenario 7: Three-Strike Moderation
+
+First confirmed violation → Warning.
+
+Second confirmed violation → Restriction.
+
+Third confirmed violation → Account banned.
+
+Appeal system functions.
+
+Critical safety violations support immediate escalation.
+
+### Scenario 8: AI Scanner
+
+Student uploads homework photo.
+
+Backend validates it.
+
+AI provider processes it.
+
+Student receives an explanation.
+
+Missing provider credentials produce an honest error, not a fake answer.
+
+### Scenario 9: Result Security
+
+Teacher submits marks.
+
+Authorized approval occurs.
+
+Result publishes.
+
+Only authorized students and guardians can view it.
+
+### Scenario 10: Universal Add
+
+Each role opens its dashboard.
+
+Only permitted Add actions appear.
+
+Each valid Add action saves correctly to the backend.
+
+Unauthorized operations return permission errors.
+
+---
+
+# PART 43 — DEVELOPMENT AND RELEASE REQUIREMENTS
+
+Create these deliverables:
+
+1. Complete frontend.
+2. Complete backend.
+3. Complete database schema.
+4. Database migrations.
+5. Seed scripts for development.
+6. Authentication system.
+7. Permission system.
+8. Tenant isolation.
+9. Role-specific dashboards.
+10. Student database.
+11. Parent linking.
+12. School registration.
+13. Global social network.
+14. My School feed.
+15. Profile system.
+16. Messaging.
+17. Notifications.
+18. Academic management.
+19. AI homework scanner.
+20. Moderation service.
+21. Financial modules.
+22. Additional school modules.
+23. API documentation.
+24. Setup documentation.
+25. Environment variable template.
+26. Docker configuration.
+27. Deployment instructions.
+28. Test suite.
+29. Database backup instructions.
+30. Security checklist.
+
+## Required Project Documentation
+
+Create:
+
+- README.md.
+- ARCHITECTURE.md.
+- DATABASE.md.
+- API_DOCUMENTATION.md.
+- SECURITY.md.
+- DEPLOYMENT.md.
+- ENVIRONMENT.md.
+- TESTING.md.
+- CHANGELOG.md.
+
+## Configuration
+
+Use environment variables for:
+
+- DATABASE_URL.
+- REDIS_URL.
+- JWT_SECRET or equivalent session secrets.
+- COOKIE_SECRET.
+- GEMINI_API_KEY.
+- OPENAI_API_KEY.
+- EMAIL_PROVIDER_KEY.
+- SMS_PROVIDER_KEY.
+- PAYMENT_PROVIDER_KEYS.
+- STORAGE credentials.
+- VIDEO provider settings.
+- TURN server credentials.
+
+Do not commit secrets.
+
+Provide `.env.example`.
+
+---
+
+# PART 44 — FINAL DEFINITION OF DONE
+
+The entire application is complete only when all these conditions are satisfied:
+
+## Account System
+
+- All account types have functional authentication.
+- School ID login works.
+- User IDs are unique within school context.
+- Passwords are securely hashed.
+- Account recovery works.
+- Role-based redirection works.
+- Account switching works safely.
+
+## Dashboard System
+
+- Every role has a personalized dashboard.
+- Every eligible dashboard has a working Add button.
+- Add permissions are enforced server-side.
+- Actions persist in the database.
+- Activity history is available.
+
+## School Management
+
+- Schools register.
+- Schools are verified.
+- School IDs are generated.
+- Teachers and staff can be invited.
+- Students can be registered.
+- Class management works.
+- Academic features work.
+
+## Student Accounts
+
+- Teachers can create accounts for assigned classes.
+- Students receive unique login credentials.
+- Temporary password changes work.
+- Login cards work.
+- Technical Department manages authorized master database operations.
+
+## Social Network
+
+- Profiles work.
+- Posts work.
+- Global Feed works.
+- My School works.
+- Likes work.
+- Comments work.
+- Shares work.
+- Saves work.
+- Connections work.
+- School discovery works.
+- Groups work.
+- Privacy rules work.
+
+## AI
+
+- Homework image upload works.
+- AI provider integration works when configured.
+- Learning modes work.
+- Usage limits work.
+- Results are properly labelled.
+
+## Communication
+
+- Messaging works.
+- Notifications work.
+- Parent-teacher permissions work.
+- Call infrastructure works when configured.
+- Student safeguards work.
+
+## Security
+
+- Cross-school data access is prevented.
+- Parent-student relationships are verified.
+- Unauthorized API operations are denied.
+- Private files are protected.
+- Moderation works.
+- Three-strike enforcement works.
+- Appeals work.
+- Audit logs work.
+
+## Production
+
+- Database migrations succeed.
+- Build succeeds.
+- Tests pass.
+- Backup process works.
+- Environment configuration is documented.
+- Critical security issues are resolved.
+
+No module may be labelled COMPLETE simply because its frontend page exists.
+
+---
+
+# PART 45 — FINAL EXECUTION COMMAND
+
+Now begin implementation.
+
+First inspect the complete existing repository and identify the current framework, features, backend, database and missing functionality.
+
+Create a clear implementation checklist mapped to the modules in this specification.
+
+Then implement the complete product in the existing project architecture.
+
+Preserve existing functional work and upgrade it where necessary.
+
+Do not stop after generating a plan, design, homepage, login screen, dashboard mockup or database diagram.
+
+Do not omit minor features such as password reset, empty states, upload validation, error messages, notifications, duplicate detection, permissions, audit history or mobile responsiveness.
+
+Do not replace working backend functionality with static data.
+
+Do not create fake API responses.
+
+Do not mark incomplete integrations as successful.
+
+If an external provider requires credentials, implement the integration fully and clearly expose the configuration requirement.
+
+Implement proper error handling and loading states.
+
+After implementation:
+
+1. Run database migrations.
+2. Build frontend.
+3. Build backend.
+4. Run tests.
+5. Test authentication.
+6. Test every major dashboard.
+7. Test all Add operations.
+8. Test school isolation.
+9. Test parent linking.
+10. Test social feed privacy.
+11. Test moderation and appeals.
+12. Fix errors.
+13. Update documentation.
+14. Provide the final implementation report.
+
+The implementation report must clearly distinguish:
+
+- Fully implemented.
+- Tested and working.
+- Requires external credentials.
+- Requires production infrastructure.
+- Not yet completed.
+
+Never falsely claim that a feature works.
+
+# FINAL PRODUCT VISION
+
+Build a premium worldwide education platform where:
+
+- Every school has its own independent digital system.
+- Every Principal gets a complete administrative dashboard.
+- Every Teacher gets an academic dashboard.
+- Every Staff member gets a departmental dashboard.
+- Every Technical Department gets a student database management dashboard.
+- Every Student gets a personalized learning dashboard.
+- Every Parent gets a connected family dashboard.
+- Every account gets a professional social profile.
+- Everyone has a role-appropriate Add function.
+- Schools connect through one Global Education Network.
+- Every school maintains its own private My School community.
+- AI supports homework and educational activities.
+- Messaging and calling enable safe communication.
+- Automatic moderation protects the community.
+- Permissions and tenant isolation protect every record.
+
+**ONE PLATFORM. ALL SCHOOLS. ALL USERS. ONE GLOBAL EDUCATION COMMUNITY. SEPARATE AND SECURE SCHOOL DATABASES.**
+
+Build it as a real, fully functional, professionally engineered education ecosystem—not a demo or a collection of static dashboards.

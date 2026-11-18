@@ -1,0 +1,1762 @@
+# MASTER BACKEND ENGINEERING PROMPT
+## Advanced Multi-School Management System
+### Production-Ready Backend, Database, APIs, Authentication, Security & Infrastructure
+
+---
+
+# 1. ROLE AND OBJECTIVE
+
+Act as a Senior Backend Architect, Database Engineer, Cybersecurity Engineer, API Developer, Supabase Specialist and SaaS Infrastructure Engineer.
+
+Your task is to design, develop, implement, test and integrate a complete production-oriented backend for an advanced School Management Web Application.
+
+This is NOT a frontend-only application.
+This is NOT a UI prototype.
+This is NOT a fake authentication system.
+This is NOT a static dashboard with dummy data.
+
+Build a real, functional, database-driven multi-school management platform with:
+
+- Real authentication and authorization.
+- Real PostgreSQL database.
+- Secure multi-tenant architecture.
+- Functional backend APIs.
+- Role-based access control.
+- Real-time communication.
+- Homework and assignment management.
+- Student results and academic records.
+- School notices and announcements.
+- Daily school diary.
+- School activity publishing.
+- Parent-teacher communication.
+- File and document management.
+- Notifications.
+- Complete administrative controls.
+- Audit logs and security monitoring.
+
+Every important button, action, form, dashboard statistic and data operation must connect to actual backend functionality.
+
+Do not simulate successful operations.
+
+---
+
+# 2. REQUIRED TECHNOLOGY STACK
+
+Use the following architecture.
+
+## Frontend Integration
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
+## Backend
+- Next.js Route Handlers
+- Next.js Server Actions where appropriate
+- TypeScript
+- Zod validation
+- Supabase server-side client
+- Supabase Edge Functions when appropriate
+
+## Database
+- Supabase PostgreSQL
+- PostgreSQL foreign keys
+- Database indexes
+- Constraints
+- Transactions
+- Database migrations
+- Database functions where appropriate
+
+## Authentication
+- Supabase Auth
+- Secure session management
+- Email verification
+- Password reset
+- Role-based authorization
+- School membership verification
+
+## Realtime
+- Supabase Realtime
+- PostgreSQL Changes
+- Realtime Broadcast
+- Presence where appropriate
+
+## File Storage
+- Supabase Storage
+- Private buckets
+- Signed URLs
+- Upload validation
+- File access policies
+
+## Deployment
+- Netlify
+- Supabase Cloud
+- GitHub
+- Environment-based configuration
+
+Architecture must be compatible with Netlify deployment and Supabase Free Plan limitations.
+
+Do not introduce unnecessary paid infrastructure.
+
+---
+
+# 3. MULTI-TENANT SCHOOL ARCHITECTURE
+
+Build this application as a multi-school SaaS platform.
+
+Multiple independent schools must be able to register and operate on the same application.
+
+Example:
+
+School A:
+- Students
+- Teachers
+- Parents
+- Staff
+- Principal
+
+School B:
+- Students
+- Teachers
+- Parents
+- Staff
+- Principal
+
+School C:
+- Students
+- Teachers
+- Parents
+- Staff
+- Principal
+
+Every school must have completely isolated records.
+
+CRITICAL:
+A user from School A must NEVER access School B's private information.
+
+Implement:
+
+- school_id on all school-owned records.
+- Tenant-aware database queries.
+- PostgreSQL Row Level Security (RLS).
+- Tenant-aware authorization.
+- School membership validation.
+- School-specific storage access.
+- School-specific notifications.
+- School-specific academic records.
+- School-specific user permissions.
+
+Never rely exclusively on frontend filtering for tenant security.
+
+Enforce tenant isolation inside PostgreSQL RLS policies and trusted server-side authorization.
+
+---
+
+# 4. USER REGISTRATION AND AUTHENTICATION SYSTEM
+
+Implement three main public registration options.
+
+## A. SIGN UP AS SCHOOL
+
+Create a complete school registration system.
+
+Required information:
+
+- School name
+- School registration number
+- School email
+- Official phone number
+- Country
+- Province / State
+- District
+- Municipality
+- Full address
+- School logo
+- School type
+- Principal's name
+- Principal's official email
+- Contact person
+- Password
+
+Registration workflow:
+
+1. User submits school registration form.
+2. Validate all information.
+3. Verify email ownership.
+4. Check duplicate registration numbers.
+5. Create school record with PENDING status.
+6. Create the initial school administrator membership securely.
+7. Generate school verification request.
+8. Allow authorized platform administrators to review.
+9. Verify or reject the school.
+10. Activate the school after approval.
+11. Send notification about approval status.
+
+School registration statuses:
+
+- PENDING
+- UNDER_REVIEW
+- APPROVED
+- REJECTED
+- SUSPENDED
+- DEACTIVATED
+
+A pending school must not have unrestricted access to production school services.
+
+## B. SIGN UP AS PARENT
+
+Parent registration fields:
+
+- Full name
+- Email
+- Phone number
+- Password
+- Address
+- Relationship with student
+- Profile image (optional)
+
+After registration:
+
+1. Verify email.
+2. Create parent profile.
+3. Allow parent to request student linking.
+4. Request a school admission/student code.
+5. Validate student identity and school.
+6. Require school-approved or otherwise verified guardian association.
+7. Create parent-student relationship.
+8. Activate parent access after verification.
+
+A parent can have multiple children.
+
+A student can have multiple authorized guardians.
+
+Never allow parents to link themselves to arbitrary students without verification.
+
+## C. SIGN UP AS STUDENT
+
+Student registration fields:
+
+- Full name
+- Email (optional if school-managed)
+- Phone number (optional)
+- Date of birth
+- Gender (only where legally and operationally necessary)
+- Student admission number
+- School
+- Class
+- Section
+- Guardian contact
+- Password or school-issued activation credentials
+
+Registration workflow:
+
+1. Verify student admission information.
+2. Confirm school membership.
+3. Validate class and section.
+4. Require guardian/school verification as applicable.
+5. Create student profile.
+6. Activate student account after approval.
+
+For younger students, support parent-assisted registration and school-issued credentials.
+
+---
+
+# 5. SCHOOL INTERNAL ACCOUNT SYSTEM
+
+Inside the School Account, implement three main account types:
+
+1. Principal
+2. Teachers
+3. Staff
+
+## Principal Account
+
+Principal permissions:
+
+- View school dashboard.
+- Manage teachers.
+- Manage staff.
+- Manage students.
+- Manage parent accounts.
+- Create and manage classes.
+- Assign teachers.
+- Create school notices.
+- Publish school activities.
+- View academic performance.
+- View examination results.
+- Review homework activity.
+- Manage attendance.
+- Manage school diary.
+- View school reports.
+- Contact parents.
+- Contact teachers.
+- Manage school contact information.
+- Manage technical department contact.
+- Review activity and audit logs.
+
+Principal can control access granted to other school users but cannot access platform-wide super-administrator privileges.
+
+## Teacher Account
+
+Teacher permissions:
+
+- View assigned classes.
+- View assigned students.
+- View authorized parent contact details.
+- Create homework.
+- Upload homework attachments.
+- Set submission deadlines.
+- Create assignments.
+- Review submitted homework.
+- Provide feedback.
+- Mark assignments.
+- Publish examination results where authorized.
+- Record attendance.
+- Create daily diary entries.
+- Send class announcements.
+- Message parents.
+- Contact school principal.
+- View assigned subject information.
+
+Teachers must not access unrelated school records unless authorized.
+
+## Staff Account
+
+Support different staff categories:
+
+- Administrative Staff
+- Reception Staff
+- Accountant
+- Examination Staff
+- Librarian
+- IT / Technical Staff
+- Other Staff
+
+Each staff account must have configurable permissions.
+
+Use permissions rather than giving every staff member unrestricted access.
+
+---
+
+# 6. ROLE-BASED ACCESS CONTROL (RBAC)
+
+Implement a complete RBAC system.
+
+Roles:
+
+- PLATFORM_SUPER_ADMIN
+- SCHOOL_ADMIN
+- PRINCIPAL
+- TEACHER
+- STAFF
+- PARENT
+- STUDENT
+
+Use a role-permission structure.
+
+Create database tables:
+
+- roles
+- permissions
+- role_permissions
+- user_roles
+- school_memberships
+
+Permissions should support:
+
+- CREATE
+- READ
+- UPDATE
+- DELETE
+- APPROVE
+- PUBLISH
+- MANAGE
+- EXPORT
+
+Example permission identifiers:
+
+- students.create
+- students.read
+- students.update
+- students.delete
+- teachers.manage
+- homework.create
+- homework.review
+- results.publish
+- notices.publish
+- attendance.manage
+- diary.publish
+- messages.send
+- school.settings.manage
+- reports.export
+
+Enforce permissions on the server and in database policies.
+
+Never trust a role supplied by the browser.
+
+Users must not be able to assign themselves Principal, Teacher or School Admin privileges.
+
+---
+
+# 7. COMPLETE DATABASE ARCHITECTURE
+
+Design a normalized PostgreSQL database.
+
+Generate complete SQL migration files for every table, relationship, index, constraint, trigger, function and RLS policy.
+
+## A. Core Tables
+
+1. profiles
+2. schools
+3. school_memberships
+4. roles
+5. permissions
+6. role_permissions
+7. user_roles
+8. school_verification_requests
+9. school_settings
+10. school_contacts
+
+## B. Academic Tables
+
+11. academic_years
+12. classes
+13. sections
+14. subjects
+15. teacher_assignments
+16. student_enrollments
+17. student_guardians
+18. student_profiles
+19. teacher_profiles
+20. staff_profiles
+21. parent_profiles
+
+## C. Homework and Assignment Tables
+
+22. homework
+23. homework_attachments
+24. homework_submissions
+25. homework_submission_attachments
+26. assignments
+27. assignment_submissions
+28. assignment_feedback
+
+## D. Examination and Results Tables
+
+29. examinations
+30. examination_subjects
+31. grading_systems
+32. grades
+33. student_results
+34. report_cards
+35. result_publication_logs
+
+## E. Attendance Tables
+
+36. attendance_sessions
+37. attendance_records
+38. attendance_corrections
+
+## F. School Communication Tables
+
+39. school_notices
+40. school_activities
+41. daily_diary
+42. diary_entries
+43. class_announcements
+44. messages
+45. conversations
+46. conversation_members
+47. message_attachments
+48. message_read_receipts
+
+## G. Notifications Tables
+
+49. notifications
+50. notification_preferences
+51. notification_deliveries
+52. device_tokens
+
+## H. Administrative Tables
+
+53. contact_requests
+54. support_tickets
+55. feedback
+56. audit_logs
+57. reports
+58. platform_settings
+
+## I. System Tables
+
+59. invitations
+60. verification_tokens (only if required beyond Supabase Auth)
+61. account_status_history
+62. data_export_requests
+
+Design actual relationships using foreign keys.
+
+Important database rules:
+
+- Use UUID primary keys.
+- Use timestamptz for timestamps.
+- Use created_at and updated_at.
+- Use deleted_at only for appropriate soft-deletable records.
+- Use unique constraints for school registration numbers.
+- Enforce valid academic relationships.
+- Prevent duplicate student enrollment in the same class and academic year.
+- Prevent duplicate attendance records per student/session.
+- Index frequently queried columns.
+- Use transactions for multi-table operations.
+- Avoid unnecessary duplicated data.
+- Add appropriate ON DELETE behavior.
+
+Do not create redundant or unused tables.
+
+Provide an ERD and a complete database schema document.
+
+---
+
+# 8. HOMEWORK MANAGEMENT BACKEND
+
+Implement a complete homework lifecycle.
+
+Teacher can:
+
+- Create homework.
+- Select class.
+- Select section.
+- Select subject.
+- Add title.
+- Add instructions.
+- Add description.
+- Upload PDF documents.
+- Upload images.
+- Set assignment date.
+- Set due date.
+- Set submission requirements.
+- Publish immediately or schedule publication.
+- Edit published homework where permitted.
+- Archive homework.
+
+Parents and students can:
+
+- View assigned homework.
+- View attachments.
+- View submission deadlines.
+- Check submission status.
+- Submit homework.
+- Upload supported documents.
+- View teacher feedback.
+- View marks.
+
+Submission statuses:
+
+- NOT_SUBMITTED
+- SUBMITTED
+- LATE
+- REVIEWED
+- RESUBMISSION_REQUESTED
+- ACCEPTED
+
+Teacher dashboard must show:
+
+- Total assigned students.
+- Submitted homework.
+- Pending submissions.
+- Late submissions.
+- Reviewed submissions.
+
+Apply class-based access validation.
+
+---
+
+# 9. SCHOOL DAILY DIARY SYSTEM
+
+Build a real digital school diary.
+
+Teachers can publish:
+
+- Class activities.
+- Daily lessons.
+- Homework summaries.
+- Important reminders.
+- Student behavior notes (restricted to authorized recipients).
+- Classroom updates.
+- Events.
+- Upcoming examinations.
+
+Parents can view diary entries belonging to their verified children.
+
+Students can view their own authorized diary entries.
+
+Support:
+
+- Date-based records.
+- Class filtering.
+- Subject filtering.
+- Attachments.
+- Teacher information.
+- Publication status.
+- Edit history.
+- Parent notification.
+
+Sensitive internal teacher notes must never be visible to parents or students unless explicitly released.
+
+---
+
+# 10. SCHOOL NOTICE AND ANNOUNCEMENT SYSTEM
+
+Build a complete announcement backend.
+
+Principal and authorized administrators can publish:
+
+- School-wide notices.
+- Academic notices.
+- Holiday announcements.
+- Examination notices.
+- Parent meeting notices.
+- Event announcements.
+- Emergency notices.
+- Administrative announcements.
+
+Target audiences:
+
+- Everyone in the school.
+- Teachers.
+- Staff.
+- Parents.
+- Students.
+- Selected classes.
+- Selected sections.
+
+Support:
+
+- Notice scheduling.
+- Expiration dates.
+- Attachments.
+- Read receipts.
+- Priority levels.
+- Drafts.
+- Publishing and archiving.
+- Editing history.
+
+Parents must receive only notices applicable to their verified children or their school-wide audience.
+
+---
+
+# 11. SCHOOL ACTIVITY AND POST MANAGEMENT
+
+Create a school activity publishing system.
+
+Authorized school administrators can publish:
+
+- Sports activities.
+- Annual programs.
+- Educational tours.
+- Competitions.
+- Cultural programs.
+- Award ceremonies.
+- Classroom activities.
+- School achievements.
+
+Features:
+
+- Activity title.
+- Description.
+- Photos.
+- Video URLs.
+- Activity date.
+- Publication date.
+- Category.
+- Audience visibility.
+- Event location.
+- Author information.
+- Comments (optional and permission-controlled).
+- Post editing.
+- Archiving.
+- Reactions (optional).
+
+Use secure storage for uploaded photographs.
+
+Support signed URLs for private media.
+
+---
+
+# 12. PARENT-TEACHER COMMUNICATION SYSTEM
+
+Develop a real-time messaging system.
+
+Features:
+
+- Parent-to-teacher messaging.
+- Teacher-to-parent messaging.
+- Principal-to-teacher messaging.
+- Principal-to-parent messaging.
+- School administrative communication.
+- Conversation history.
+- Text messages.
+- File attachments.
+- Read receipts.
+- Unread message counts.
+- Message timestamps.
+- Conversation search.
+- Message reporting.
+- Blocking or moderation controls where required.
+
+Use Supabase Realtime for message delivery.
+
+Database must store messages persistently.
+
+Implement:
+
+- Conversation authorization.
+- Membership validation.
+- School isolation.
+- Verified parent-student relationship checks.
+- Teacher-class assignment checks.
+- Message rate limiting.
+- Attachment validation.
+- Abuse reporting.
+- Audit events for administrative access.
+
+Never allow a parent to message a teacher of an unrelated student without authorization.
+
+Protect children from unauthorized communication.
+
+---
+
+# 13. DIRECT CALL SYSTEM
+
+Implement contact options between parents and teachers.
+
+Provide two supported modes.
+
+## Mode A: Phone Calling
+
+- Securely display authorized contact numbers.
+- Implement click-to-call using telephone links.
+- Respect school communication permissions.
+- Allow schools to hide personal phone numbers.
+- Support school-managed contact numbers.
+
+## Mode B: In-App Audio / Video Calling
+
+Design a provider-independent architecture for future WebRTC-based audio/video calling.
+
+Potential integrations:
+
+- WebRTC.
+- A managed video calling provider.
+- Secure signaling service.
+
+Create:
+
+- call_sessions
+- call_participants
+- call_events
+
+Call statuses:
+
+- INITIATED
+- RINGING
+- ACCEPTED
+- REJECTED
+- MISSED
+- ENDED
+- FAILED
+
+Implement call authorization and consent.
+
+Do not pretend that ordinary Supabase Realtime or a telephone link provides a complete in-app calling service.
+
+If an external provider or paid infrastructure is required, clearly document that dependency and provide a functional phone-call fallback.
+
+---
+
+# 14. EXAMINATION AND RESULTS MANAGEMENT
+
+Develop a complete examination and result backend.
+
+Principal and authorized teachers can:
+
+- Create examinations.
+- Configure examination dates.
+- Assign subjects.
+- Set full marks.
+- Set pass marks.
+- Enter student marks.
+- Update marks before publication.
+- Review examination results.
+- Approve results.
+- Publish results.
+- Generate report cards.
+
+Parents can view results only for their verified children.
+
+Students can view their own results.
+
+Features:
+
+- Subject-wise marks.
+- Total marks.
+- Obtained marks.
+- Percentage.
+- Grade.
+- Pass/fail status.
+- Remarks.
+- Rank (only where school policy permits).
+- Academic year.
+- Examination type.
+- Result publication timestamp.
+
+Implement grading rules as school-configurable data rather than hardcoded assumptions.
+
+Ensure only authorized users can change marks.
+
+Keep result change logs.
+
+---
+
+# 15. ATTENDANCE MANAGEMENT
+
+Build an attendance management system.
+
+Teachers can record:
+
+- Present.
+- Absent.
+- Late.
+- Excused.
+
+Features:
+
+- Daily attendance.
+- Class-based attendance.
+- Student-wise history.
+- Monthly reports.
+- Attendance percentage.
+- Parent notifications.
+- Correction requests.
+- Authorized correction approval.
+- Attendance audit trail.
+
+Prevent duplicate attendance entries for the same student and attendance session.
+
+---
+
+# 16. PRINCIPAL AND TECHNICAL DEPARTMENT CONTACT
+
+Create school-level contact management.
+
+Contact categories:
+
+- Principal.
+- Vice Principal.
+- Administration.
+- Technical Department.
+- Accounts Department.
+- Reception.
+- Emergency Contact.
+
+Store:
+
+- Department name.
+- Contact person's name.
+- Official email.
+- Official phone.
+- Extension (optional).
+- Working hours.
+- Visibility settings.
+- Contact status.
+
+Support contact requests and support tickets.
+
+Keep internal/private contacts inaccessible to unauthorized users.
+
+---
+
+# 17. NOTIFICATION ENGINE
+
+Develop a centralized notification system.
+
+Notification events:
+
+- New homework.
+- Homework deadline reminders.
+- Homework submission.
+- Homework reviewed.
+- New school notice.
+- New diary entry.
+- Examination schedule.
+- Published result.
+- Attendance update.
+- New message.
+- School activity.
+- Parent-teacher meeting.
+- Account verification.
+- School approval.
+- Support ticket update.
+
+Support:
+
+- In-app notifications.
+- Real-time notification delivery.
+- Email notifications through a configured provider.
+- Push notifications as an optional future integration.
+- Read/unread status.
+- Notification preferences.
+- Notification history.
+
+Important:
+
+Notifications must be generated from authorized backend events, not directly trusted browser requests.
+
+Use an event-driven notification architecture.
+
+Prevent duplicate notification deliveries using idempotency keys.
+
+Do not promise SMS, email or push delivery without the required provider configuration.
+
+---
+
+# 18. FILE STORAGE AND DOCUMENT SECURITY
+
+Create private Supabase Storage buckets:
+
+- school-logos
+- profile-images
+- homework-files
+- homework-submissions
+- school-notices
+- school-activities
+- report-cards
+- support-attachments
+
+Implement:
+
+- File type validation.
+- File size limits.
+- MIME-type validation.
+- File ownership validation.
+- Secure signed URLs.
+- Storage authorization.
+- School-based folder structure.
+- Upload authorization.
+- File deletion rules.
+
+Never expose private buckets publicly.
+
+Never trust a filename or MIME type supplied by the browser alone.
+
+Use generated storage paths rather than user-provided paths.
+
+Document file limits as configurable settings compatible with the free-tier storage quota.
+
+Do not store large binary files directly inside PostgreSQL.
+
+---
+
+# 19. BACKEND API ARCHITECTURE
+
+Build well-structured, versioned APIs.
+
+Use:
+
+/api/v1/auth
+/api/v1/schools
+/api/v1/users
+/api/v1/profiles
+/api/v1/students
+/api/v1/parents
+/api/v1/teachers
+/api/v1/staff
+/api/v1/classes
+/api/v1/sections
+/api/v1/subjects
+/api/v1/homework
+/api/v1/assignments
+/api/v1/submissions
+/api/v1/diary
+/api/v1/notices
+/api/v1/activities
+/api/v1/messages
+/api/v1/conversations
+/api/v1/calls
+/api/v1/examinations
+/api/v1/results
+/api/v1/attendance
+/api/v1/notifications
+/api/v1/contacts
+/api/v1/support
+/api/v1/reports
+/api/v1/settings
+/api/v1/admin
+
+For every endpoint define:
+
+- HTTP method.
+- URL.
+- Authentication requirements.
+- Required permissions.
+- Request validation.
+- Request schema.
+- Response schema.
+- Error responses.
+- Database operations.
+- Authorization checks.
+
+Use consistent REST API conventions.
+
+Implement:
+
+- Pagination.
+- Filtering.
+- Sorting.
+- Search.
+- Standard error responses.
+- Request validation.
+- Rate limiting.
+- Idempotency for sensitive operations.
+
+Return appropriate HTTP status codes.
+
+Example response:
+
+{
+  "success": true,
+  "message": "Homework created successfully",
+  "data": {
+    "id": "uuid",
+    "title": "Mathematics Homework",
+    "status": "PUBLISHED"
+  }
+}
+
+Example error response:
+
+{
+  "success": false,
+  "message": "You are not authorized to perform this action",
+  "error": {
+    "code": "FORBIDDEN",
+    "details": null
+  }
+}
+
+Never expose raw SQL errors, database credentials or private internal information.
+
+Generate API documentation using OpenAPI where practical.
+
+---
+
+# 20. SECURITY ENGINEERING
+
+Security is a mandatory development requirement.
+
+Implement a defense-in-depth security architecture.
+
+## Authentication Security
+
+- Secure Supabase authentication.
+- Email verification.
+- Password reset tokens.
+- Secure session handling.
+- Session expiration.
+- Session revocation where supported.
+- Account deactivation.
+- Login error handling.
+- Brute-force protection.
+
+## Database Security
+
+- Enable RLS on every tenant-sensitive table.
+- Create restrictive policies.
+- Verify user identity through trusted authenticated context.
+- Verify school membership.
+- Verify resource ownership.
+- Verify role permissions.
+- Prevent cross-school data access.
+- Restrict service-role access to trusted server-side code.
+
+## API Security
+
+- Validate all incoming data with Zod.
+- Reject unauthorized requests.
+- Rate-limit sensitive endpoints.
+- Protect administrative operations.
+- Validate uploaded files.
+- Protect against mass assignment.
+- Prevent insecure direct object references.
+- Handle duplicate requests safely.
+
+## Web Security
+
+Protect against:
+
+- SQL injection.
+- Cross-site scripting (XSS).
+- Cross-site request forgery (CSRF), where applicable.
+- Broken access control.
+- IDOR.
+- Authentication bypass.
+- Privilege escalation.
+- Brute-force attacks.
+- Malicious uploads.
+- Open redirects.
+- Sensitive data leakage.
+
+Implement suitable security headers and Content Security Policy.
+
+Never expose:
+
+- Supabase service role key.
+- Database passwords.
+- Private API keys.
+- Signing secrets.
+- SMTP credentials.
+
+Never put privileged credentials in NEXT_PUBLIC environment variables.
+
+Treat all browser data as untrusted.
+
+---
+
+# 21. AUDIT LOGGING AND MONITORING
+
+Create a comprehensive audit logging system.
+
+Record important events:
+
+- Login.
+- Logout.
+- Failed authentication.
+- Account activation.
+- School registration.
+- School approval.
+- Role assignment.
+- Permission changes.
+- Student creation.
+- Student updates.
+- Homework publication.
+- Result changes.
+- Attendance corrections.
+- Notice publication.
+- Account suspension.
+- Sensitive file access.
+- Administrative actions.
+
+Audit log fields:
+
+- id
+- school_id
+- actor_user_id
+- action
+- resource_type
+- resource_id
+- timestamp
+- request_id
+- relevant metadata
+
+Never allow ordinary users to modify or delete audit logs.
+
+Avoid storing passwords, tokens or unnecessary sensitive information in logs.
+
+Provide filtered audit log views for authorized administrators.
+
+---
+
+# 22. DASHBOARD ANALYTICS APIs
+
+Create actual database-driven dashboard endpoints.
+
+## School Dashboard
+
+- Total students.
+- Total teachers.
+- Total staff.
+- Total parents.
+- Total classes.
+- Today's attendance.
+- Pending homework submissions.
+- Recent notices.
+- Upcoming examinations.
+- Recent school activities.
+
+## Teacher Dashboard
+
+- Assigned classes.
+- Total students.
+- Published homework.
+- Pending submissions.
+- Upcoming deadlines.
+- Today's attendance.
+- Recent parent messages.
+
+## Parent Dashboard
+
+- Linked children.
+- Recent homework.
+- Pending homework.
+- Attendance summaries.
+- Upcoming examinations.
+- Published results.
+- School notices.
+- Teacher messages.
+
+## Student Dashboard
+
+- Assigned homework.
+- Submission status.
+- Examination schedule.
+- Published results.
+- Attendance history.
+- Diary entries.
+- School announcements.
+
+## Staff Dashboard
+
+Display information according to staff permissions.
+
+Every statistic must come from real database queries.
+
+Do not hardcode dashboard numbers.
+
+Use pagination, efficient database queries and appropriate indexes.
+
+---
+
+# 23. BACKEND PROJECT STRUCTURE
+
+Maintain a clean, modular project architecture.
+
+Example:
+
+src/
+  app/
+    api/
+      v1/
+        auth/
+        schools/
+        students/
+        parents/
+        teachers/
+        homework/
+        diary/
+        notices/
+        activities/
+        messages/
+        results/
+        attendance/
+        notifications/
+        reports/
+
+  lib/
+    supabase/
+      client.ts
+      server.ts
+      middleware.ts
+
+    auth/
+      authentication.ts
+      authorization.ts
+      permissions.ts
+      session.ts
+
+    security/
+      rate-limit.ts
+      validation.ts
+      headers.ts
+      audit.ts
+
+    database/
+      types.ts
+      queries.ts
+
+  modules/
+    auth/
+    schools/
+    students/
+    parents/
+    teachers/
+    staff/
+    academics/
+    homework/
+    diary/
+    notices/
+    activities/
+    messaging/
+    examinations/
+    results/
+    attendance/
+    notifications/
+    contacts/
+    support/
+    analytics/
+
+  services/
+  repositories/
+  schemas/
+  types/
+  utils/
+
+supabase/
+  migrations/
+  functions/
+  seed.sql
+  config.toml
+
+tests/
+  unit/
+  integration/
+  security/
+  e2e/
+
+docs/
+  architecture.md
+  database-schema.md
+  api-documentation.md
+  security.md
+  deployment.md
+
+You may improve this structure when justified, but keep modules separated and maintainable.
+
+Do not put the entire backend inside one huge file.
+
+Use service and repository layers where they improve separation of concerns.
+
+---
+
+# 24. ENVIRONMENT VARIABLES
+
+Generate an .env.example file.
+
+Include the required configuration:
+
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+SUPABASE_SERVICE_ROLE_KEY=
+
+NEXT_PUBLIC_APP_URL=
+
+EMAIL_PROVIDER_API_KEY=
+EMAIL_FROM_ADDRESS=
+
+RATE_LIMIT_CONFIGURATION=
+
+OPTIONAL_CALL_PROVIDER_API_KEY=
+OPTIONAL_CALL_PROVIDER_SECRET=
+
+Rules:
+
+- Keep private keys server-side.
+- Never commit .env files.
+- Validate required variables at startup.
+- Fail safely when required configuration is missing.
+- Document optional provider dependencies.
+- Ensure deployment environment variables are configured correctly.
+
+---
+
+# 25. NETLIFY DEPLOYMENT
+
+Prepare the backend for Netlify deployment.
+
+Implement:
+
+- Netlify-compatible Next.js deployment.
+- Correct build configuration.
+- Environment variable configuration.
+- Server-side runtime compatibility.
+- API route compatibility.
+- Secure production configuration.
+- Deployment checks.
+- Production database configuration.
+
+Use Supabase as the persistent backend/database instead of trying to run an always-on Node.js server on Netlify.
+
+Avoid long-running server processes.
+
+Avoid relying on in-memory sessions or application state.
+
+Use database-backed state and managed services.
+
+Create:
+
+- netlify.toml
+- deployment.md
+- .env.example
+- production checklist
+
+Document any functionality that exceeds the free hosting or database allowance.
+
+---
+
+# 26. FREE-TIER OPTIMIZATION
+
+The application must be designed to operate economically.
+
+Target infrastructure:
+
+- Netlify Free.
+- Supabase Free.
+- GitHub Free.
+
+Optimization requirements:
+
+- Avoid unnecessary database queries.
+- Use pagination.
+- Add appropriate indexes.
+- Optimize image sizes.
+- Limit uploaded file sizes.
+- Avoid continuous polling.
+- Use Realtime selectively.
+- Avoid excessive database subscriptions.
+- Cache safe public or non-sensitive data appropriately.
+- Avoid unnecessary serverless function invocations.
+- Clean up expired temporary records.
+- Monitor database and storage consumption.
+- Implement efficient notification delivery.
+
+Do not assume free tiers provide unlimited usage or guaranteed production uptime.
+
+Implement graceful handling when a provider quota or service becomes unavailable.
+
+Never silently lose academic data.
+
+Include database export and backup procedures.
+
+---
+
+# 27. TESTING REQUIREMENTS
+
+Create automated tests.
+
+## Unit Testing
+
+Test:
+
+- Validation schemas.
+- Authorization functions.
+- Permission resolution.
+- Business logic.
+- Grade calculation.
+- Attendance calculations.
+- Notification generation.
+
+## Integration Testing
+
+Test:
+
+- Registration.
+- Login.
+- School creation.
+- Teacher invitation.
+- Student enrollment.
+- Parent-student linking.
+- Homework creation.
+- Homework submission.
+- Notice publication.
+- Result publication.
+- Messaging.
+- File authorization.
+
+## Security Testing
+
+Mandatory tests:
+
+1. Parent cannot access another parent's child.
+2. Student cannot access another student's records.
+3. Teacher cannot access unauthorized classes.
+4. Teacher cannot promote themselves to Principal.
+5. School A cannot access School B's records.
+6. Parent cannot publish school notices.
+7. Student cannot modify examination results.
+8. Unauthorized users cannot access private file storage.
+9. Unauthenticated requests cannot access protected APIs.
+10. Privileged keys are never exposed to frontend code.
+
+Test RLS policies using different authenticated user contexts.
+
+Do not consider security complete merely because API middleware works.
+
+## End-to-End Testing
+
+Test the major workflows from registration to dashboard operations.
+
+Use isolated test data, not real student records.
+
+---
+
+# 28. ERROR HANDLING AND RELIABILITY
+
+Build a centralized error-handling system.
+
+Support:
+
+- Validation errors.
+- Authentication errors.
+- Authorization errors.
+- Database errors.
+- Upload errors.
+- Network errors.
+- Rate-limit errors.
+- Provider failures.
+- Unexpected internal errors.
+
+Use structured server-side logging.
+
+Implement safe retry handling for appropriate background or external-service operations.
+
+Use idempotency for duplicate-sensitive requests.
+
+Avoid duplicate homework submissions and notification deliveries caused by repeated requests.
+
+Provide clear user-facing error messages without exposing internal implementation details.
+
+---
+
+# 29. PRIVACY AND CHILD DATA PROTECTION
+
+This system handles student and potentially children's personal information.
+
+Apply privacy-by-design principles.
+
+Implement:
+
+- Minimum necessary data collection.
+- School-specific access permissions.
+- Guardian verification.
+- Restricted contact information.
+- Secure student profiles.
+- Restricted academic reports.
+- Data export.
+- Account deactivation.
+- Configurable data retention.
+- Secure deletion workflows where legally required.
+- Consent and authorization records where applicable.
+- Audit logs for sensitive access.
+
+Do not expose children's personal information publicly.
+
+Do not make student contact details visible to unrelated parents or students.
+
+Do not use student data for advertising or unrelated purposes.
+
+Document the applicable privacy and child-protection obligations for the countries in which the school operates.
+
+---
+
+# 30. DEVELOPMENT EXECUTION PLAN
+
+Do not attempt to produce only a theoretical architecture document.
+
+Actually implement the backend in the existing project.
+
+Follow these phases:
+
+## Phase 1 — Project Inspection
+
+- Inspect the existing codebase.
+- Identify the current frontend framework.
+- Review existing pages and forms.
+- Identify current authentication implementation.
+- Identify existing database configuration.
+- Identify existing environment variables.
+- Avoid overwriting working frontend code.
+- Prepare a backend integration plan.
+
+## Phase 2 — Database Foundation
+
+- Configure Supabase.
+- Create migrations.
+- Create tables.
+- Create relationships.
+- Create indexes.
+- Implement constraints.
+- Implement RLS.
+- Create database types.
+- Prepare seed data for development.
+
+## Phase 3 — Authentication
+
+- Implement school signup.
+- Implement parent signup.
+- Implement student signup.
+- Implement email verification.
+- Implement login/logout.
+- Implement password reset.
+- Implement session management.
+- Implement role assignment.
+- Implement school membership validation.
+
+## Phase 4 — Core Management
+
+- Implement school management.
+- Implement teachers.
+- Implement staff.
+- Implement students.
+- Implement parents.
+- Implement classes.
+- Implement sections.
+- Implement subjects.
+- Implement enrollments.
+
+## Phase 5 — Academic Features
+
+- Implement homework.
+- Implement assignments.
+- Implement submissions.
+- Implement examination.
+- Implement results.
+- Implement attendance.
+- Implement daily diary.
+
+## Phase 6 — Communication
+
+- Implement school notices.
+- Implement activity posts.
+- Implement parent-teacher messaging.
+- Implement notifications.
+- Implement contact management.
+- Implement phone-call integration points.
+
+## Phase 7 — Administration
+
+- Implement dashboards.
+- Implement analytics APIs.
+- Implement support tickets.
+- Implement audit logs.
+- Implement reporting.
+- Implement settings.
+
+## Phase 8 — Security
+
+- Verify every RLS policy.
+- Test every role.
+- Test school isolation.
+- Test unauthorized requests.
+- Test storage security.
+- Test account privilege escalation.
+- Test sensitive data access.
+
+## Phase 9 — Deployment
+
+- Configure Netlify.
+- Configure Supabase production environment.
+- Add environment variables.
+- Run migrations.
+- Execute tests.
+- Verify production endpoints.
+- Verify database connectivity.
+- Verify authentication.
+- Verify storage permissions.
+- Verify real-time communication.
+
+---
+
+# 31. STRICT DEVELOPMENT RULES
+
+Follow these rules throughout development.
+
+1. Never create fake authentication.
+2. Never use hardcoded dashboard statistics.
+3. Never rely on frontend-only authorization.
+4. Never expose service-role credentials.
+5. Never allow cross-school data access.
+6. Never create unrestricted database policies.
+7. Never trust user-submitted role identifiers.
+8. Never hardcode school IDs.
+9. Never return private student information without authorization.
+10. Never claim an operation succeeded before the database confirms it.
+11. Never silently ignore failed database operations.
+12. Never leave security-critical functions incomplete.
+13. Never use mock data in production functionality.
+14. Never overwrite existing working frontend pages unnecessarily.
+15. Never leave fake API responses.
+16. Never leave placeholder authentication.
+17. Never skip database migrations.
+18. Never ignore failed security tests.
+19. Never expose internal error traces to clients.
+20. Never claim the project is production-ready without running the required tests.
+
+When a feature requires an external provider, implement its integration boundary, document the required credentials and provide an honest functional fallback.
+
+---
+
+# 32. FINAL DELIVERABLES
+
+At completion, provide:
+
+1. Complete backend source code.
+2. Complete PostgreSQL database schema.
+3. All SQL migration files.
+4. Complete RLS policies.
+5. Authentication implementation.
+6. RBAC implementation.
+7. School tenant isolation.
+8. All required backend APIs.
+9. Realtime messaging implementation.
+10. Homework backend.
+11. School diary backend.
+12. Notice backend.
+13. School activity backend.
+14. Examination and result backend.
+15. Attendance backend.
+16. Notification engine.
+17. File storage implementation.
+18. Contact management backend.
+19. Audit logging system.
+20. Validation schemas.
+21. API documentation.
+22. Database ERD.
+23. .env.example.
+24. Netlify deployment configuration.
+25. Supabase configuration.
+26. Automated tests.
+27. Security testing report.
+28. Setup instructions.
+29. Production deployment guide.
+30. Free-tier limitations document.
+
+---
+
+# 33. FINAL ACCEPTANCE CRITERIA
+
+The backend will be considered functionally complete only when:
+
+- Schools can register and submit verification requests.
+- Authorized administrators can approve schools.
+- Parents can register and link verified children.
+- Students can access their own accounts.
+- Teachers can access assigned classes.
+- Staff can access authorized features.
+- Principals can manage school operations.
+- Teachers can create and publish homework.
+- Students can submit homework.
+- Parents can view their children's homework.
+- Teachers can publish daily diary entries.
+- Schools can publish notices and activities.
+- Parents and teachers can exchange authorized messages.
+- Contact functionality works.
+- Results can be created, approved and published.
+- Attendance can be recorded and reported.
+- Notifications work through configured providers.
+- Private files cannot be accessed by unauthorized users.
+- Dashboard information is retrieved from PostgreSQL.
+- Every tenant-sensitive table has properly tested RLS.
+- No user can access another school's private records.
+- Production deployment works on Netlify.
+- Critical automated security and integration tests pass.
+
+# FINAL INSTRUCTION
+
+Start by inspecting the existing project.
+
+Do not stop after generating an architecture or database diagram.
+
+Implement the real backend, connect it to the existing frontend, generate all required migrations, implement the security policies, test every workflow, fix integration errors and prepare the application for deployment.
+
+Prioritize data security, multi-tenant isolation, maintainability, reliability and correctness over development speed.
+
+The final result must be a functional, scalable, secure School Management SaaS backend with real database operations — not a UI demo or a collection of disconnected API files.
